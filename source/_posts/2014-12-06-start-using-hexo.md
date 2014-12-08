@@ -65,18 +65,18 @@ tags: [hexo]
 可在 git bash 中执行 `ssh -T git@github.com` 看看设置是否成功。
 
 ## 修改博客配置
-发布博客之前，需要修改配置，才能够将博客部署到 github 上。打开本地 repository 目录下的 _config.yml，如下：
+发布博客之前，需要修改配置，才能够将博客部署到 github 上。打开本地 repository 目录下的 _config.yml，比如我的配置如下：
    
         deploy:
 	        type: github
 	        repository: git@github.com:AnnieCyl/anniecyl.github.io.git
 	        branch: master
 
-`repository` 配置项要使用 ssh 地址，可在 github 上查看该 repository 的地址。
+`repository` 配置项要使用 ssh 地址，可在 github 上查看你的 repository 的 ssh 地址。
 
 ## 发布博客
 在本地 repository 中执行以下命令：
-`hexo generate`
+`hexo g`
 `hexo d`
 
 ok 啦，接下来你就可以在浏览器中输入：你的 github 用户名.github.io(比如我的博客：anniecyl
@@ -89,6 +89,7 @@ ok 啦，接下来你就可以在浏览器中输入：你的 github 用户名.gi
 
 ## 参考
 
+- [Hexo](http://hexo.io/docs/)
 - [GitHub多账户使用](http://www.blogjava.net/lishunli/archive/2012/03/08/371556.html)
 - [Hexo搭建Github静态博客](http://www.cnblogs.com/zhcncn/p/4097881.html)
 - [如何搭建一个独立博客——简明Github Pages与Hexo教程](http://www.jianshu.com/p/05289a4bc8b2)
