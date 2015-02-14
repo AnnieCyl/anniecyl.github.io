@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 天道酬勤
-subtitle: 天天学习，好好向上
+title: Annie's Blog
+subtitle: good good study, day day up
 description:
 author: Annie
 email: 289927039@qq.com
-language:
+language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -82,7 +82,7 @@ disqus_shortname:
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: pacman
+theme: athena
 exclude_generator:
 
 # Markdown
@@ -109,6 +109,6 @@ sitemap:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repository: git@github.com:AnnieCyl/anniecyl.github.io.git
   branch: master
