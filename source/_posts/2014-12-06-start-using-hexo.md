@@ -1,6 +1,7 @@
 title: 使用 hexo 搭建博客
 date: 2014-12-06 15:41:13
-tags: [hexo]
+tags: 
+- hexo
 ---
 
 # 安装软件

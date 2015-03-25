@@ -1,6 +1,7 @@
 title: "ERROR Deployer not found: github"
 date: 2015-02-14 10:28:28
-tags: [hexo]
+tags: 
+- hexo
 ---
 
 自从搭建了我的博客，2 个多月没再更新。结果今天想要发布博客的时候发现 `hexo g` 和 `hexo d` 居然不能用了，提示“ERROR Deployer not found: github”。
