@@ -1,14 +1,10 @@
 .DS_Store
 Thumbs.db
 db.json
-<<<<<<< refs/remotes/origin/master
 *.log
 node_modules/
 public/
 .deploy*/
-=======
 debug.log
-node_modules/
-public/
 .deploy/
->>>>>>> develop~0
+
