@@ -88,6 +88,11 @@ ok 啦，接下来你就可以在浏览器中输入：你的 github 用户名.gi
 `hexo new "my new post"`
 会自动在本地 repository 的 `source/_posts` 下生成 `my new post.md`，编辑该文件后就可以发布到博客上了。
 
+## 修改博客主题
+在 `https://hexo.io/themes/` 上有很多现有的主题可以直接拿来用。每个主题都有提供使用的方法。其实只需两个步骤：
+1. 将想要用的主题 clone 到你的博客工程的 `themes` 路径下
+2. 修改 `_config.yml` 中的 `theme` 为主题名称
+
 ## 参考
 
 - [Hexo](http://hexo.io/docs/)
