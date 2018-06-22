@@ -2,6 +2,7 @@ title:  在 Mac 上安装 Git
 date: 2018-06-21 19:59:59
 tags:
 - git
+- mac
 ---
 
 有两种方式在 Mac 上安装 Git：

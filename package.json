@@ -22,5 +22,9 @@
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.2.1",
     "hexo-server": "^0.1.2"
+  },
+  "devDependencies": {
+    "hexo-renderer-pug": "0.0.5",
+    "hexo-wordcount": "^3.0.2"
   }
 }
