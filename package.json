@@ -21,7 +21,8 @@
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.2.1",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.2",
+    "moment-jalaali": "^0.7.4"
   },
   "devDependencies": {
     "hexo-renderer-pug": "0.0.5",

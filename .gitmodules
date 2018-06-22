@@ -1,0 +1,6 @@
+[submodule "themes/dxx"]
+	path = themes/dxx
+	url = ../../fuzhouxxdong/hexo-theme-dxx.git
+[submodule "themes/annie"]
+	path = themes/annie
+	url = ../hexo-theme-dxx.git
