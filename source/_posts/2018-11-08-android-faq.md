@@ -17,3 +17,16 @@ tags:
 解决办法：
 - [点击这里](https://developer.android.com/ndk/downloads/?hl=zh-cn)下载 NDK 包。
 - 解压之后打开 `toolchains` 文件夹，跟本地 `toolchains` 文件夹做对比，找到其缺少的文件夹，复制过去。
+
+# FAQ 2
+**Installation failed with message Invalid File**
+如果设备上应用明明已经卸载了，但是 AS 在 Run 这个应用的时候还是一直提示：
+```
+Installation failed with message Invalid File: xxxx. It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.
+WARNING: Uninstalling will remove the application data!
+Do you want to uninstall the existing application?
+```
+可以尝试以下这个方法：
+```
+Settings>Build,execute,deployment>Instant run>Enable instant run to hot swap code /resource change on deploy(unchecked this option)
+```
