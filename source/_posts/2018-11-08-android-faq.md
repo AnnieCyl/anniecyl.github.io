@@ -30,3 +30,12 @@ Do you want to uninstall the existing application?
 ```
 Settings>Build,execute,deployment>Instant run>Enable instant run to hot swap code /resource change on deploy(unchecked this option)
 ```
+
+# FAQ 3
+**Module not specified**
+如果 app 模块上有个红叉：
+![module-not-specified-1](/img/2018-11-08-android-faq/module-not-specified-1.png)
+且运行的时候弹出如下的提示框：
+![module-not-specified-2](/img/2018-11-08-android-faq/module-not-specified-2.png)
+在 settings.gradle 中，先注释掉 include'：app'，然后单击 File > Sync Project with Gradle files。
+此后在 settings.gradle 恢复 include'：app'，再 Sync 工程。
