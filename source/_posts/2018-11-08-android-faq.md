@@ -39,3 +39,20 @@ Settings>Build,execute,deployment>Instant run>Enable instant run to hot swap cod
 ![module-not-specified-2](/img/2018-11-08-android-faq/module-not-specified-2.png)
 在 settings.gradle 中，先注释掉 include'：app'，然后单击 File > Sync Project with Gradle files。
 此后在 settings.gradle 恢复 include'：app'，再 Sync 工程。
+
+# FAQ 4
+
+**ERROR: SSL peer shut down incorrectly**
+
+project 级别的*build.gradle* 里面把 `jcenter()` 注释掉。
+
+```
+allprojects {
+    repositories {
+        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        jcenter()
+    }
+}
+```
+
