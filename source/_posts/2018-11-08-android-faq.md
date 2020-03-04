@@ -61,3 +61,17 @@ allprojects {
 **Command line is too long**
 
 修改项目下 `.idea\workspace.xml`，找到标签 `<component name="PropertiesComponent">`， 在标签里加一行`<property name="dynamic.classpath" value="true" />`
+
+# FAQ6
+
+**Android Studio Build Output 栏内汉字出现乱码**
+![build-output-mass-code](/img/2018-11-08-android-faq/build-output-mass-code.png)
+打开 Android Studio 双击 shift 或者点击以下搜索按钮：
+![search](/img/2018-11-08-android-faq/search.png)
+在搜索框内输入 Edit Custom VM Options：
+![edit-custom-vm-options](/img/2018-11-08-android-faq/edit-custom-vm-options.png)
+点击第一个选项打开 studio64.exe.vmoptions（若没有此文件，则先创建），添加一句代码 `-Dfile.encoding=UTF-8`，并编译一下，必须编译，否则 AS 重启的话无法正常打开。
+![studio64-vmoptions](/img/2018-11-08-android-faq/studio64-vmoptions.png)
+编译以后重启 AS 即可。
+
+
