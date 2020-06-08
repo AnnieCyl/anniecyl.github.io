@@ -74,6 +74,8 @@ allprojects {
 ![studio64-vmoptions](/img/2018-11-08-android-faq/studio64-vmoptions.png)
 编译以后重启 AS 即可。
 
+# FAQ7
+
 **Program type already present**
 工程结构是这样的：
 1. lib1 定义的是各种接口文件，导出成 lib1.aar
