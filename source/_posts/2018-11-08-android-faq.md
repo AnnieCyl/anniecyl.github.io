@@ -74,4 +74,10 @@ allprojects {
 ![studio64-vmoptions](/img/2018-11-08-android-faq/studio64-vmoptions.png)
 编译以后重启 AS 即可。
 
+**Program type already present**
+工程结构是这样的：
+1. lib1 定义的是各种接口文件，导出成 lib1.aar
+2. lib2 引用 lib1.aar，并对 lib1 的接口进行实现，导出成 lib2.aar
+3. app 引用 lib1 和 lib2，但是编译的时候一直会提示 `Program type already present` 的错误，明明只有 lib1 中定义一次的 interface，也还是会提示 `Program type already present` 这个错误
 
+各种尝试 `implementation`、`api`、`compileOnly` 来引用这两个 aar，依然会出现这个问题（非常抓狂。。。）。最后看到一个网友说不要使用 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，否则就会出现 `Program type already present` 问题。于是在 app 的 gradle 中注释掉 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，果然问题就没了。
