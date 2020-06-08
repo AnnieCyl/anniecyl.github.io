@@ -88,4 +88,23 @@ allprojects {
 2. lib2 引用 lib1.aar，并对 lib1 的接口进行实现，导出成 lib2.aar
 3. app 引用 lib1 和 lib2，但是编译的时候一直会提示 `Program type already present` 的错误，明明只有 lib1 中定义一次的 interface，也还是会提示 `Program type already present` 这个错误
 
-各种尝试 `implementation`、`api`、`compileOnly` 来引用这两个 aar，依然会出现这个问题（非常抓狂。。。）。最后看到一个网友说不要使用 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，否则就会出现 `Program type already present` 问题。于是在 app 的 gradle 中注释掉 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，果然问题就没了。
+各种尝试 `implementation`、`api`、`compileOnly` 来引用这两个 aar，依然会出现这个问题（非常抓狂。。。）。最后看到一个网友说不要使用 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，否则就会出现 `Program type already present` 问题。
+
+于是终于发现在 app 的 gradle 中要么使用 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，一下子引入 libs 下所有的 jar 和 aar：
+```
+implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+// implementation(name:'lib1',ext:'aar')
+// implementation(name:'lib2',ext:'aar')
+```
+要么就是不用 `implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')`，直接引用具体的 aar：
+```
+// implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+implementation(name:'lib1',ext:'aar')
+implementation(name:'lib2',ext:'aar')
+```
+如果同时使用 `implementation fileTree` 和引用具体的 aar（如下），就会出现 `Program type already present` 这个错。
+```
+implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+implementation(name:'lib1',ext:'aar')
+implementation(name:'lib2',ext:'aar')
+```
