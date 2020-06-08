@@ -60,13 +60,13 @@ allprojects {
 }
 ```
 
-# FAQ5
+# FAQ 5
 
 **Command line is too long**
 
 修改项目下 `.idea\workspace.xml`，找到标签 `<component name="PropertiesComponent">`， 在标签里加一行`<property name="dynamic.classpath" value="true" />`
 
-# FAQ6
+# FAQ 6
 
 **Android Studio Build Output 栏内汉字出现乱码**
 
@@ -79,7 +79,7 @@ allprojects {
 ![studio64-vmoptions](/img/2018-11-08-android-faq/studio64-vmoptions.png)
 编译以后重启 AS 即可。
 
-# FAQ7
+# FAQ 7
 
 **Program type already present**
 
