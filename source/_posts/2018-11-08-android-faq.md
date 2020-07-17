@@ -114,3 +114,16 @@ implementation(name:'lib2',ext:'aar')
 在界面添加 Button 的时候，默认 Button 显示的字母都是大写的，即使它的 text 属性设置的都是小写字母。
 
 解决办法：在 Button 的属性里加上 android:textAllCaps="false" 即可。
+
+# FAQ 9
+
+**Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager. **
+
+解决办法：
+1. Open the SDK manager by clicking on the icon in the top right of Android Studio. (Or go to File > Settings > Appearance & Behavior > System Settings > Android SDK)
+2. Open **SDK Tools** tab
+3. At the bottom-right, click "Show Package Details"
+4. Find **Android SDK Build-Tools** and uncheck the checkbox next to 29.0.2
+5. Click apply in the bottom of the window. That will delete the component.
+6. Now check the checkbox next to 29.0.2
+7. Click apply in the bottom of the window. That will reinstall it.
