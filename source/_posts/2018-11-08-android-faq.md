@@ -108,3 +108,9 @@ implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 implementation(name:'lib1',ext:'aar')
 implementation(name:'lib2',ext:'aar')
 ```
+
+# FAQ 8
+
+在界面添加 Button 的时候，默认 Button 显示的字母都是大写的，即使它的 text 属性设置的都是小写字母。
+
+解决办法：在 Button 的属性里加上 android:textAllCaps="false" 即可。
