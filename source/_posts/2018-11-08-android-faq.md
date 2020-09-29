@@ -117,7 +117,7 @@ implementation(name:'lib2',ext:'aar')
 
 # FAQ 9
 
-**Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager. **
+**Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager.**
 
 解决办法：
 1. Open the SDK manager by clicking on the icon in the top right of Android Studio. (Or go to File > Settings > Appearance & Behavior > System Settings > Android SDK)
