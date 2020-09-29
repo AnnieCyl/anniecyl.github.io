@@ -127,3 +127,11 @@ implementation(name:'lib2',ext:'aar')
 5. Click apply in the bottom of the window. That will delete the component.
 6. Now check the checkbox next to 29.0.2
 7. Click apply in the bottom of the window. That will reinstall it.
+
+# FAQ 10
+
+**查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）**
+
+1. 找到 Android SDK 目录下的 `build-tools` 文件夹，会有不同版本的，随便点开一个，可以看到 aapt
+2. 可以将 aapt 路径添加到环境变量中，也可以直接在 aapt 所在目录下启动命令行工具
+3. 在命令行工具中输入以下命令获取 apk 信息，比如要获取的 apk 是 app-debug.apk，则运行：`aapt dump badging app-debug.apk`。当然，apk 需要写全路径
