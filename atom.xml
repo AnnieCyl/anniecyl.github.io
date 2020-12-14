@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://anniecyl.github.io/"/>
-  <updated>2020-12-11T02:54:09.307Z</updated>
+  <updated>2020-12-14T03:02:02.844Z</updated>
   <id>http://anniecyl.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Design Patterns</title>
+    <link href="http://anniecyl.github.io/2020/12/14/Design-Patterns/"/>
+    <id>http://anniecyl.github.io/2020/12/14/Design-Patterns/</id>
+    <published>2020-12-14T02:56:08.000Z</published>
+    <updated>2020-12-14T03:02:02.844Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="设计模式学习笔记"><a href="#设计模式学习笔记" class="headerlink" title="设计模式学习笔记"></a>设计模式学习笔记</h1><h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><h3 id="1-工厂方法（Factory-Method）"><a href="#1-工厂方法（Factory-Method）" class="headerlink" title="1. 工厂方法（Factory Method）"></a>1. 工厂方法（Factory Method）</h3><p>简单工厂方法：一个工厂类根据条件创建不同的产品实例对象返回。当有新产品类时，需要修改工厂类中生成实例对象的方法，将这个新产品的判断添加进去来创建新产品的实例对象返回。所以简单工厂方法不符合<code>开放-封闭原则</code>。</p><p><img src="/img/2020-12-14-design-patterns/simple-factory.png" alt="simple-factory"></p><p>工厂方法：一个抽象工厂类，有不同的具体工厂类继承实现。每个具体工厂类创建返回不同的具体产品对象。当有新产品需要添加的时候，只要添加对应的工厂类和新产品类即可，不用去修改已有的工厂类和产品类。所以工厂方法模式符合<code>开放-封闭原则</code>。</p><p><img src="/img/2020-12-14-design-patterns/factory-method.png" alt="simple-factory"></p><p><a href="https://www.hollischuang.com/archives/3709" target="_blank" rel="noopener">https://www.hollischuang.com/archives/3709</a></p><h3 id="2-抽象工厂"><a href="#2-抽象工厂" class="headerlink" title="2. 抽象工厂"></a>2. 抽象工厂</h3><p><img src="/img/2020-12-14-design-patterns/abstract-factory.png" alt="simple-factory"></p><h3 id="3-生成器"><a href="#3-生成器" class="headerlink" title="3. 生成器"></a>3. 生成器</h3><h3 id="4-原型"><a href="#4-原型" class="headerlink" title="4. 原型"></a>4. 原型</h3><h3 id="5-单例"><a href="#5-单例" class="headerlink" title="5. 单例"></a>5. 单例</h3><h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><h3 id="1-适配器"><a href="#1-适配器" class="headerlink" title="1. 适配器"></a>1. 适配器</h3><h3 id="2-桥接"><a href="#2-桥接" class="headerlink" title="2. 桥接"></a>2. 桥接</h3><h3 id="3-组合"><a href="#3-组合" class="headerlink" title="3. 组合"></a>3. 组合</h3><h3 id="4-装饰器"><a href="#4-装饰器" class="headerlink" title="4. 装饰器"></a>4. 装饰器</h3><h3 id="5-外观"><a href="#5-外观" class="headerlink" title="5. 外观"></a>5. 外观</h3><h3 id="6-享元"><a href="#6-享元" class="headerlink" title="6. 享元"></a>6. 享元</h3><h3 id="7-代理"><a href="#7-代理" class="headerlink" title="7. 代理"></a>7. 代理</h3><h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><h3 id="1-责任链"><a href="#1-责任链" class="headerlink" title="1. 责任链"></a>1. 责任链</h3><h3 id="2-命令"><a href="#2-命令" class="headerlink" title="2. 命令"></a>2. 命令</h3><h3 id="3-解释器"><a href="#3-解释器" class="headerlink" title="3. 解释器"></a>3. 解释器</h3><h3 id="4-迭代器"><a href="#4-迭代器" class="headerlink" title="4. 迭代器"></a>4. 迭代器</h3><h3 id="5-中介"><a href="#5-中介" class="headerlink" title="5. 中介"></a>5. 中介</h3><h3 id="6-备忘录"><a href="#6-备忘录" class="headerlink" title="6. 备忘录"></a>6. 备忘录</h3><h3 id="7-观察者"><a href="#7-观察者" class="headerlink" title="7. 观察者"></a>7. 观察者</h3><h3 id="8-状态"><a href="#8-状态" class="headerlink" title="8. 状态"></a>8. 状态</h3><h3 id="9-策略"><a href="#9-策略" class="headerlink" title="9. 策略"></a>9. 策略</h3><h3 id="10-模板方法"><a href="#10-模板方法" class="headerlink" title="10. 模板方法"></a>10. 模板方法</h3><h3 id="11-访问者"><a href="#11-访问者" class="headerlink" title="11. 访问者"></a>11. 访问者</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;设计模式学习笔记&quot;&gt;&lt;a href=&quot;#设计模式学习笔记&quot; class=&quot;headerlink&quot; title=&quot;设计模式学习笔记&quot;&gt;&lt;/a&gt;设计模式学习笔记&lt;/h1&gt;&lt;h2 id=&quot;创建型模式&quot;&gt;&lt;a href=&quot;#创建型模式&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+    
+      <category term="programming" scheme="http://anniecyl.github.io/tags/programming/"/>
+    
+  </entry>
   
   <entry>
     <title>三月</title>
@@ -480,33 +503,6 @@
     
     
       <category term="mac" scheme="http://anniecyl.github.io/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>坚持</title>
-    <link href="http://anniecyl.github.io/2018/06/21/I-am-back/"/>
-    <id>http://anniecyl.github.io/2018/06/21/I-am-back/</id>
-    <published>2018-06-21T04:33:07.000Z</published>
-    <updated>2020-12-11T02:54:09.295Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近也是受到一些事情的影响，感觉需要振作起来，全方面地改造自己了。</p><p>从现在开始积累自己学习的一点一滴，让以后的自己可以有更多选择的机会。</p><p>坚持很重要！</p><p>很久没更新博客了，今天上来提交博客，果然也是遇到了问题：</p><p><img src="/img/2018-06-21-I-am-back/host-key-verification-failed.png" alt="1"></p><p>现在 github 上添加了公钥（难道我之前没添加过？）：</p><p><img src="/img/2018-06-21-I-am-back/ssh-key.png" alt="1"></p><p>再测试是否可以连接到 github 上，<br>$ ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近也是受到一些事情的影响，感觉需要振作起来，全方面地改造自己了。&lt;/p&gt;
-&lt;p&gt;从现在开始积累自己学习的一点一滴，让以后的自己可以有更多选择的机会。&lt;/p&gt;
-&lt;p&gt;坚持很重要！&lt;/p&gt;
-&lt;p&gt;很久没更新博客了，今天上来提交博客，果然也是遇到了问题：&lt;/p&gt;
-&lt;p&gt;&lt;img
-      
-    
-    </summary>
-    
-    
-      <category term="programmer" scheme="http://anniecyl.github.io/tags/programmer/"/>
     
   </entry>
   
