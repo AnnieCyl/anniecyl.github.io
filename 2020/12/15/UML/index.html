@@ -9,22 +9,22 @@
 <h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><p>各种关系的强弱顺序：泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖</p>
 <p><img src="/img/2020-12-15-uml/relation.png" alt="relation"></p>
 <h3 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h3><p>泛化关系表现为<strong>继承非抽象类</strong>，也就是 <code>is-a</code> 的关系，e.g.：汽车在现实中有实现，可用汽车定义具体的对象；汽车与 SUV 之间为泛化关系，用一条带空心箭头的直线表示，如下图表示：SUV 继承自汽车，SUV 也是一种汽车。</p>
-<p><img src="/img/2020-12-15-uml/is-a.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/is-a.png" style="zoom:100%;"></p>
 <h3 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h3><p>实现关系表现为<strong>继承抽象类</strong>，e.g.：“车”为一个抽象概念，无法直接用来定义对象，只有指明具体的子类（汽车还是自行车），才 可以用来定义对象。实现关系用一条带空心箭头的虚线表示。</p>
-<p><img src="/img/2020-12-15-uml/realize.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/realize.png" style="zoom:100%;"></p>
 <h3 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h3><p>聚合关系表示整体由部分构成，也就是 <code>has-a</code> 的关系。在聚合关系中，成员对象是整体对象的一部分，但是成员对象可以脱离整体对象独立存在。例如一个汽车有 4 个轮子。聚合关系用一条带空心菱形箭头的直线表示。</p>
-<p><img src="/img/2020-12-15-uml/has-a.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/has-a.png" style="zoom:100%;"></p>
 <h3 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h3><p>组合关系同样表示整体由部分构成，但组合关系是一种强依赖的关系，在组合关系中整体对象可以控制成员对象的生命周期，一旦整体对象不存在，成员对象也将不存在，成员对象与整体对象之间具有同生共死的关系。例如一个人有两只手。组合关系用一条带实心菱形的直线表示。</p>
-<p><img src="/img/2020-12-15-uml/composition.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/composition.png" style="zoom:100%;"></p>
 <h3 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h3><p>关联分单向关联和双向关联：</p>
 <ul>
 <li>如果一个类知道或者引用了另一个类，而另一个类不知道或者没有引用这个类，则这两个类是单向关联的。</li>
 <li>双向关联是两个类彼此都知道对方的存在。</li>
 </ul>
 <p>关联关系默认不强调方向，使用普通直线，表示对象间相互知道；如果特别强调方向，可以用带箭头的直线。如下图，老师与学生是双向关联，老师有多名学生，学生也可能有多名老师。但学生与某课程间的关系为单向关联，一名学生可能要上多门课程，课程是个抽象的东西他不拥有学生。</p>
-<p><img src="/img/2020-12-15-uml/association.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/association.png" style="zoom:100%;"></p>
 <h3 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h3><p>与关联关系不同的是，依赖关系是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化，依赖关系也可能发生变化。依赖也有方向，双向依赖是一种非常糟糕的结构，应该总是保持单向依赖，杜绝双向依赖的产生。</p>
 <p>在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，箭头的指向为调用关系。依赖关系除了临时知道对方外，还“使用”对方的方法和属性。</p>
 <p>依赖关系用带箭头的虚线表示，由依赖的一方指向被依赖的一方。例如程序员依赖电脑工作。</p>
-<p><img src="/img/2020-12-15-uml/dependency.png" width="50%" style="margin: 0 auto;"></p>
+<p><img src="/img/2020-12-15-uml/dependency.png" style="zoom:100%;"></p>
 </section><nav id="post-nav"><span class="prev"></span><span class="next"><a href="/2020/12/14/Design-Patterns/">Older Posts<span class="arrow">→</span></a></span></nav></article></section><footer id="footer"><div id="social"><a class="symbol" href="https://github.com/AnnieCyl"><i class="fa fa-github"></i></a></div><p class="small">© Copyright 2018 &nbsp;<i class="fa fa-heart" aria-hidden="true">&nbsp;Annie</i></p><p class="small">Powered by &nbsp;<a href="https://hexo.io/">Hexo &nbsp;</a>Theme By &nbsp;<a href="https://github.com/AnnieCyl/hexo-theme-annie">Annie</a></p></footer></body></html>
