@@ -242,11 +242,11 @@ public class BridgeTest {
 
 组合多个对象形成**树形**结构以表示具有 "整体—部分" 关系的层次结构。组合模式对单个对象（即叶子对象）和组合对象（即容器对象）的使用具有一致性。包含以下角色：
 
-* Component（抽象构件）：它可以是接口或抽象类，为叶子构件和容器构件对象声明接口，在该角色中可以包含所有子类共有行为的声明和实现。在抽象构件中定义了访问及管理它的子构件的方法，如增加子构件、删除子构件、获取子构件等。
+* 抽象构件（Component）：它可以是接口或抽象类，为叶子构件和容器构件对象声明接口，在该角色中可以包含所有子类共有行为的声明和实现。在抽象构件中定义了访问及管理它的子构件的方法，如增加子构件、删除子构件、获取子构件等。
 
-* Leaf（叶子构件）：它在组合结构中表示叶子节点对象，叶子节点没有子节点，它实现了在抽象构件中定义的行为。对于那些访问及管理子构件的方法，可以通过异常等方式进行处理。
+* 叶子构件（Leaf）：它在组合结构中表示叶子节点对象，叶子节点没有子节点，它实现了在抽象构件中定义的行为。对于那些访问及管理子构件的方法，可以通过异常等方式进行处理。
 
-* Composite（容器构件）：它在组合结构中表示容器节点对象，容器节点包含子节点，其子节点可以是叶子节点，也可以是容器节点，它提供一个集合用于存储子节点，实现了在抽象构件中定义的行为，包括那些访问及管理子构件的方法，在其业务方法中可以递归调用其子节点的业务方法。
+* 容器构件（Composite）：它在组合结构中表示容器节点对象，容器节点包含子节点，其子节点可以是叶子节点，也可以是容器节点，它提供一个集合用于存储子节点，实现了在抽象构件中定义的行为，包括那些访问及管理子构件的方法，在其业务方法中可以递归调用其子节点的业务方法。
 
 组合模式分为透明式的组合模式和安全式的组合模式。
 
@@ -334,10 +334,245 @@ public class BridgeTest {
 
   ![composite-expose-leaf-methods](/img/2020-12-14-design-patterns/composite-expose-leaf-methods.png)
 
-### 4. 装饰器
+### 4. 装饰器（Decorator Pattern）
 
-### 5. 外观
-### 6. 享元
+动态地给一个对象添加一些额外的职责，就增加功能来说，装饰器模式比生成子类更为灵活；它允许向一个现有的对象添加新的功能，同时又不改变其结构，相当于对现有的对象进行了一个包装。
+
+Decorator 模式的目的就是把一个一个的附加功能，用 Decorator 的方式给一层一层地累加到原始数据源上，最终，通过组合获得我们想要的功能。例如给 `FileInputStream` 增加缓冲和解压缩功能，用 Decorator 模式写出来如下： 
+
+```java
+// 创建原始的数据源:
+InputStream fis = new FileInputStream("test.gz");
+// 增加缓冲功能:
+InputStream bis = new BufferedInputStream(fis);
+// 增加解压缩功能:
+InputStream gis = new GZIPInputStream(bis);
+```
+
+装饰器模式组成：
+
+* 抽象构件角色（Component）： 定义可以动态添加任务的对象的接口
+
+* 具体构件角色（ConcreteComponent）：定义一个要被装饰器装饰的对象，即 Component 的具体实现
+
+* 抽象装饰器（Decorator）：持有一个构件（Component）对象的实例，并定义一个与抽象构件接口一致的接口。
+
+* 具体装饰器角色（ConcreteDecorator）：向构件对象添加新的职责
+
+  ![decorator](/img/2020-12-14-design-patterns/decorator.png)
+
+```java
+// 抽象构件角色
+public interface Component {
+    public void operation();
+}
+
+// 具体构件角色
+public class ConcreteComponent implements Component {
+    @Override
+    public void operation() {
+        System.out.println("装饰器模式。。。。。");
+    }
+}
+
+// 装饰器角色
+public class Decorator implements Component {
+
+    private Component component;
+
+    public Decorator(Component component)
+    {
+        this.component = component;
+    }
+    
+    @Override
+    public void operation() {
+        component.toDoSth();
+    }
+}
+
+// 具体装饰角色 A
+public class ConcreteDecoratorA extends Decorator {
+
+    public ConcreteDecoratorA(Component component) {
+        super(component);
+    }
+    
+    public void operation()
+    {
+        super.operation();
+        
+        this.newFunA();
+    }
+    
+    private void newFunA() {
+        System.out.println("新功能A");
+    }
+}
+
+package com.design.decorator;
+
+// 具体装饰角色 B
+public class ConcreteDecoratorB extends Decorator {
+
+    public ConcreteDecoratorB(Component component) {
+        super(component);
+    }
+    
+    public void operation()
+    {
+        super.operation();
+        
+        this.newFunB();
+    }
+    
+    private void newFunB() {
+        System.out.println("新功能B");
+    }
+}
+
+package com.design.decorator;
+
+// 装饰模式测试代码
+public class TestDecorator {
+
+    public static void main(String[] args) {
+        Component component = new ConcreteComponent();
+        
+        Component component1 = new ConcreteDecoratorA(component);
+        component1.operation();
+        
+        Component component2 = new ConcreteDecoratorB(component1);
+        component2.operation();
+    }
+}
+```
+
+装饰模式通常在以下几种情况使用。
+
+- 当需要给一个现有类添加附加职责，而又不能采用生成子类的方法进行扩充时。例如，该类被隐藏或者该类是终极类或者采用继承方式会产生大量的子类。
+- 当需要通过对现有的一组基本功能进行排列组合而产生非常多的功能时，采用继承关系很难实现，而采用装饰模式却很好实现。
+- 当对象的功能要求可以动态地添加，也可以再动态地撤销时。
+
+### 5. 外观（Facade Pattern）
+
+外观模式又称为门面模式，为子系统中的一组接口提供一个统一的入口。外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。如办房产证或注册一家公司，要同多个部门联系，这时要是有一个综合部门能解决一切手续问题就好了。
+
+外观模式包含如下两个角色：
+
+* 外观角色（Facade）：客户端可以调用它的方法，外观角色可以知道相关的（一个或者多个）子系统的功能和责任。正常情况下，它将所有从客户端发来的请求委派到相应的子系统去，传递给相应的子系统对象处理。
+
+* 子系统角色（SubSystem）：在软件系统中可以有一个或者多个子系统角色，每一个子系统可以不是一个单独的类，而是一个类的集合，它实现子系统的功能。每一个子系统都可以被客户端直接调用，或者被外观角色调用，它处理由外观类传过来的请求；子系统并不知道外观的存在，对于子系统而言，外观角色仅仅是另外一个客户端而已。
+
+![facade](/img/2020-12-14-design-patterns/facade.png)
+
+```java
+//外观角色
+class Facade {
+    private SubSystem1 obj1 = new SubSystem1();
+    private SubSystem2 obj2 = new SubSystem2();
+    private SubSystem3 obj3 = new SubSystem3();
+
+    public void method() {
+        obj1.method1();
+        obj2.method2();
+        obj3.method3();
+    }
+}
+
+//子系统角色
+class SubSystem1 {
+    public void method1() {
+        System.out.println("子系统 1 的 method1() 被调用！");
+    }
+}
+
+//子系统角色
+class SubSystem2 {
+    public void method2() {
+        System.out.println("子系统 2 的 method2() 被调用！");
+    }
+}
+
+//子系统角色
+class SubSystem3 {
+    public void method3() {
+        System.out.println("子系统 3 的 method3() 被调用！");
+    }
+}
+
+// 外观模式测试代码
+public class FacadePatternTest {
+    public static void main(String[] args) {
+        Facade f = new Facade();
+        f.method();
+    }
+}
+```
+
+### 6. 享元（Flyweight Pattern）
+
+“享”是共享的意思，“元”指的是元件，也就是小颗粒的东西，"享元"顾名思义便是共享小部件。享元模式以共享的方式高效地支持大量细粒度对象的重用，在享元模式中，存储这些共享实例对象的地方称为享元池（Flyweight Pool）。
+
+在享元模式结构图中包含如下几个角色：
+
+- 抽象享元类（Flyweight）：通常是一个接口或抽象类，在抽象享元类中声明了具体享元类公共的方法，这些方法可以向外界提供享元对象的内部数据（内部状态），同时也可以通过这些方法来设置外部数据（外部状态）。
+- 具体享元类（ConcreteFlyweight）：它实现了抽象享元类，其实例称为享元对象。在具体享元类中为内部状态提供了存储空间。通常我们可以结合单例模式来设计具体享元类，为每一个具体享元类提供唯一的享元对象。
+- 非共享具体享元类（UnsharedConcreteFlyweight）：并不是所有的抽象享元类的子类都需要被共享，不能被共享的子类可设计为非共享具体享元类。当需要一个非共享具体享元类的对象时可以直接通过实例化创建。
+- 享元工厂类（FlyweightFactory）：享元工厂类用于创建并管理享元对象，它针对抽象享元类编程，将各种类型的具体享元对象存储在一个享元池中，享元池一般设计为一个存储“键值对”的集合（也可以是其他类型的集合），可以结合工厂模式进行设计。当用户请求一个具体享元对象时，享元工厂提供一个存储在享元池中已创建的实例或者创建一个新的实例（如果不存在的话），返回新创建的实例并将其存储在享元池中。
+
+![flyweight](/img/2020-12-14-design-patterns/flyweight.png)
+
+```java
+// 抽象享元类
+public interface Flyweight {
+    String getInnerState();
+    void operation(String  externalState);
+}
+
+// 具体享元类
+public class ConcreteFlyweight implements Flyweight {
+    private String innerState;
+
+    public ConcreteFlyweight(String innerState){
+        this.innerState = innerState;
+    }
+
+    public String getInnerState() {
+        return innerState;
+    }
+
+    public void operation(String externalState) {
+        System.out.println(externalState);
+    }
+}
+
+// 享元工厂类
+public class FlyweightFactory {
+    // 定义一个 HashMap 用于存储享元对象，实现享元池
+    private static final Map<String, Flyweight> FLYWEIGHTS = new ConcurrentHashMap();
+    private static final FlyweightFactory INSTANCE = new FlyweightFactory();
+
+    private FlyweightFactory(){}
+
+    public static FlyweightFactory getInstance(){
+        return INSTANCE;
+    }
+
+    public Flyweight getFlyweight(String key){
+        // 如果对象存在，则直接从享元池获取
+        if (FLYWEIGHTS.containsKey(key)){
+            return FLYWEIGHTS.get(key);
+        }else {
+            // 如果对象不存在，先创建一个新的对象添加到享元池中，然后返回
+            Flyweight flyweight = new ConcreteFlyweight("innerState");
+            FLYWEIGHTS.put(key, flyweight);
+            return flyweight;
+        }
+    }
+}
+```
+
 ### 7. 代理
 ## 行为型模式
 ### 1. 责任链
