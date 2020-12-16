@@ -155,12 +155,187 @@ new AlertDialog.Builder(this).setTitle("这是标题")
   }
   ```
 
-### 2. 桥接
+一般情况下尽可能多的使用对象适配器模式，因为其实现了解耦合。
 
+### 2. 桥接（Bridge Pattern）
 
+如果软件系统中某个类存在两个独立变化的维度，通过桥接模式可以将这两个维度分离出来，使两者可以独立扩展，让系统更加符合“单一职责原则”。比如手机可以从两个维度进行变化，一个是品牌，一个是内存。此时我们就可以通过桥接模式将这两个维度分离开来，每一个维度都可以独立扩展。比如说手机品牌，可以又出现了苹果、三星、锤子等等。内存方面又可以生产 10G、16G 的了。
 
-### 3. 组合
+桥接模式有以下几种角色：
+
+* （抽象部分）抽象角色（Abstraction）：抽象的定义，并保存一个 Implementor 对象的引用。
+
+* （抽象部分）扩展抽象角色（RefinedAbstraction）： 拓展 Abstraction。
+
+* （实现部分）抽象实现角色（Implementor）： 定义实现类的接口，提供基本操作，其实现交给子类实现。
+
+* （实现部分）具体实现角色（ConcreteImplementor）： 实现 Implementor 接口，在程序运行时，子类对象将替换其父类对象，提供给 Abstraction 具体的业务操作方法。
+
+![bridge](/img/2020-12-14-design-patterns/bridge.png)
+
+```java
+// 抽象角色（Abstraction）
+public abstract class Abstraction {
+    private Implementor implementor;
+
+    protected void operation(){
+        implementor.request();
+    }
+    
+    public Implementor getImplementor() {
+        return implementor;
+    }
+
+    public void setImplementor(Implementor implementor) {
+        this.implementor = implementor;
+    }
+}
+
+// 扩展抽象角色（RefinedAbstraction）
+public class RefinedAbstraction extends Abstraction {
+    @Override
+    protected void operation() {
+        super.operation();
+        // TODO: Other operations
+        ... ...
+    }
+}
+
+// 抽象实现角色（Implementor）
+public interface Implementor {
+    public void request();
+}
+
+// 具体实现角色 A
+public class ConcreateImplementorA implements Implementor {
+    @Override
+    public void request() {
+        System.out.println("This is concreteImplementorA's request...");
+    }
+}
+
+// 具体实现角色 B
+public class ConcreateImplementorB implements Implementor {
+    @Override
+    public void operation() {
+        System.out.println("This is concreteImplementorB's request...");
+    }
+}
+
+// 桥接模式测试代码
+public class BridgeTest {
+    public static void main(String[] args) {
+        Abstraction abstraction = new RefinedAbstraction();
+
+        // 调用第一个实现类
+        abstraction.setImplementor(new ConcreateImplementorA());
+        abstraction.operation();
+
+        // 调用第二个实现类
+        abstraction.setImplementor(new ConcreateImplementorB());
+        abstraction.operation();
+
+    }
+}
+```
+### 3. 组合（Composite Pattern）
+
+组合多个对象形成**树形**结构以表示具有 "整体—部分" 关系的层次结构。组合模式对单个对象（即叶子对象）和组合对象（即容器对象）的使用具有一致性。包含以下角色：
+
+* Component（抽象构件）：它可以是接口或抽象类，为叶子构件和容器构件对象声明接口，在该角色中可以包含所有子类共有行为的声明和实现。在抽象构件中定义了访问及管理它的子构件的方法，如增加子构件、删除子构件、获取子构件等。
+
+* Leaf（叶子构件）：它在组合结构中表示叶子节点对象，叶子节点没有子节点，它实现了在抽象构件中定义的行为。对于那些访问及管理子构件的方法，可以通过异常等方式进行处理。
+
+* Composite（容器构件）：它在组合结构中表示容器节点对象，容器节点包含子节点，其子节点可以是叶子节点，也可以是容器节点，它提供一个集合用于存储子节点，实现了在抽象构件中定义的行为，包括那些访问及管理子构件的方法，在其业务方法中可以递归调用其子节点的业务方法。
+
+组合模式分为透明式的组合模式和安全式的组合模式。
+
+* 透明方式：在该方式中，由于抽象构件声明了所有子类中的全部方法，所以客户端无须区别叶子对象和容器对象，对客户端来说是透明的。但其缺点是：叶子构件本来没有 `add()`、`remove()` 及 `getChild()` 方法，却要实现它们（空实现或抛异常），这样会带来一些安全性问题。
+
+  ![composite-expose-all-methods](/img/2020-12-14-design-patterns/composite-expose-all-methods.png)
+
+  ```java
+  //抽象构件
+  interface Component {
+      public void add(Component c);
+  
+      public void remove(Component c);
+  
+      public Component getChild(int i);
+  
+      public void operation();
+  }
+  
+  //叶子构件
+  class Leaf implements Component {
+      private String name;
+  
+      public Leaf(String name) {
+          this.name = name;
+      }
+  
+      public void add(Component c) {
+      }
+  
+      public void remove(Component c) {
+      }
+  
+      public Component getChild(int i) {
+          return null;
+      }
+  
+      public void operation() {
+          System.out.println("树叶" + name + "：被访问！");
+      }
+  }
+  
+  //容器构件
+  class Composite implements Component {
+      private ArrayList<Component> children = new ArrayList<Component>();
+  
+      public void add(Component c) {
+          children.add(c);
+      }
+  
+      public void remove(Component c) {
+          children.remove(c);
+      }
+  
+      public Component getChild(int i) {
+          return children.get(i);
+      }
+  
+      public void operation() {
+          for (Object obj : children) {
+              ((Component) obj).operation();
+          }
+      }
+  }
+  
+  // 组合模式测试代码
+  public class CompositePatternTest {
+      public static void main(String[] args) {
+          Component c0 = new Composite();
+          Component c1 = new Composite();
+          Component leaf1 = new Leaf("1");
+          Component leaf2 = new Leaf("2");
+          Component leaf3 = new Leaf("3");
+          c0.add(leaf1);
+          c0.add(c1);
+          c1.add(leaf2);
+          c1.add(leaf3);
+          c0.operation();
+          c1.operation();
+      }
+  }
+  ```
+
+* 安全方式：在该方式中，将管理子构件的方法移到容器构件中，抽象构件和叶子构件没有对子对象的管理方法，这样就避免了上一种方式的安全性问题，但由于叶子和容器构件有不同的接口，客户端在调用时要知道树叶对象和树枝对象的存在，所以失去了透明性。
+
+  ![composite-expose-leaf-methods](/img/2020-12-14-design-patterns/composite-expose-leaf-methods.png)
+
 ### 4. 装饰器
+
 ### 5. 外观
 ### 6. 享元
 ### 7. 代理
