@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://anniecyl.github.io/2020/12/18/dotfile/</loc>
+    
+    <lastmod>2020-12-18T03:03:07.896Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://anniecyl.github.io/2020/12/14/Design-Patterns/</loc>
     
-    <lastmod>2020-12-16T09:02:00.452Z</lastmod>
+    <lastmod>2020-12-18T03:02:10.661Z</lastmod>
     
   </url>
   
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/11/07/navigation/</loc>
+    <loc>http://anniecyl.github.io/2018/11/08/android-faq/</loc>
     
     <lastmod>2020-12-11T02:54:09.304Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/11/08/android-faq/</loc>
+    <loc>http://anniecyl.github.io/2018/11/07/navigation/</loc>
     
     <lastmod>2020-12-11T02:54:09.304Z</lastmod>
     
@@ -107,13 +114,6 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/07/23/sublime/</loc>
-    
-    <lastmod>2020-12-11T02:54:09.301Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://anniecyl.github.io/2018/07/18/taiwan/</loc>
     
     <lastmod>2020-12-11T02:54:09.301Z</lastmod>
@@ -121,14 +121,21 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/07/01/h5app/</loc>
+    <loc>http://anniecyl.github.io/2018/07/23/sublime/</loc>
+    
+    <lastmod>2020-12-11T02:54:09.301Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://anniecyl.github.io/2018/06/30/head-first-java/</loc>
     
     <lastmod>2020-12-11T02:54:09.300Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/06/30/head-first-java/</loc>
+    <loc>http://anniecyl.github.io/2018/07/01/h5app/</loc>
     
     <lastmod>2020-12-11T02:54:09.300Z</lastmod>
     
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/06/21/macbook/</loc>
+    <loc>http://anniecyl.github.io/2018/06/21/install-git/</loc>
     
     <lastmod>2020-12-11T02:54:09.296Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/06/21/install-git/</loc>
+    <loc>http://anniecyl.github.io/2018/06/21/macbook/</loc>
     
     <lastmod>2020-12-11T02:54:09.296Z</lastmod>
     
