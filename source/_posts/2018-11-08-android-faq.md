@@ -5,9 +5,7 @@ tags:
 
 ---
 
-# FAQ 1
-
-**No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android**
+# FAQ 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android
 
 找到自己本地的 android-sdk：
 ![as-sdk](/img/2018-11-08-android-faq/as-sdk.jpg)
@@ -18,9 +16,7 @@ tags:
 - [点击这里](https://developer.android.com/ndk/downloads/?hl=zh-cn)下载 NDK 包。
 - 解压之后打开 `toolchains` 文件夹，跟本地 `toolchains` 文件夹做对比，找到其缺少的文件夹，复制过去。
 
-# FAQ 2
-
-**Installation failed with message Invalid File**
+# FAQ 2. Installation failed with message Invalid File
 
 如果设备上应用明明已经卸载了，但是 AS 在 Run 这个应用的时候还是一直提示：
 ```
@@ -33,9 +29,7 @@ Do you want to uninstall the existing application?
 Settings>Build,execute,deployment>Instant run>Enable instant run to hot swap code /resource change on deploy(unchecked this option)
 ```
 
-# FAQ 3
-
-**Module not specified**
+# FAQ 3. Module not specified
 
 如果 app 模块上有个红叉：
 ![module-not-specified-1](/img/2018-11-08-android-faq/module-not-specified-1.png)
@@ -44,9 +38,7 @@ Settings>Build,execute,deployment>Instant run>Enable instant run to hot swap cod
 在 settings.gradle 中，先注释掉 include'：app'，然后单击 File > Sync Project with Gradle files。
 此后在 settings.gradle 恢复 include'：app'，再 Sync 工程。
 
-# FAQ 4
-
-**ERROR: SSL peer shut down incorrectly**
+# FAQ 4. ERROR: SSL peer shut down incorrectly
 
 project 级别的*build.gradle* 里面把 `jcenter()` 注释掉。
 
@@ -60,15 +52,11 @@ allprojects {
 }
 ```
 
-# FAQ 5
-
-**Command line is too long**
+# FAQ 5. Command line is too long
 
 修改项目下 `.idea\workspace.xml`，找到标签 `<component name="PropertiesComponent">`， 在标签里加一行`<property name="dynamic.classpath" value="true" />`
 
-# FAQ 6
-
-**Android Studio Build Output 栏内汉字出现乱码**
+# FAQ 6. Android Studio Build Output 栏内汉字出现乱码
 
 ![build-output-mass-code](/img/2018-11-08-android-faq/build-output-mass-code.png)
 打开 Android Studio 双击 shift 或者点击以下搜索按钮：
@@ -79,9 +67,7 @@ allprojects {
 ![studio64-vmoptions](/img/2018-11-08-android-faq/studio64-vmoptions.png)
 编译以后重启 AS 即可。
 
-# FAQ 7
-
-**Program type already present**
+# FAQ 7. Program type already present
 
 工程结构是这样的：
 1. lib1 定义的是各种接口文件，导出成 lib1.aar
@@ -109,15 +95,13 @@ implementation(name:'lib1',ext:'aar')
 implementation(name:'lib2',ext:'aar')
 ```
 
-# FAQ 8
+# FAQ 8. android:textAllCaps="false"
 
 在界面添加 Button 的时候，默认 Button 显示的字母都是大写的，即使它的 text 属性设置的都是小写字母。
 
 解决办法：在 Button 的属性里加上 android:textAllCaps="false" 即可。
 
-# FAQ 9
-
-**Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager.**
+# FAQ 9. Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager
 
 解决办法：
 1. Open the SDK manager by clicking on the icon in the top right of Android Studio. (Or go to File > Settings > Appearance & Behavior > System Settings > Android SDK)
@@ -128,10 +112,12 @@ implementation(name:'lib2',ext:'aar')
 6. Now check the checkbox next to 29.0.2
 7. Click apply in the bottom of the window. That will reinstall it.
 
-# FAQ 10
-
-**查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）**
+# FAQ 10. 查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）
 
 1. 找到 Android SDK 目录下的 `build-tools` 文件夹，会有不同版本的，随便点开一个，可以看到 aapt
 2. 可以将 aapt 路径添加到环境变量中，也可以直接在 aapt 所在目录下启动命令行工具
 3. 在命令行工具中输入以下命令获取 apk 信息，比如要获取的 apk 是 app-debug.apk，则运行：`aapt dump badging app-debug.apk`。当然，apk 需要写全路径
+
+# FAQ 11. Program type already present: BuildConfig
+
+检查各个模块的 `AndroidManifest.xml` 里的 package 是不是有一样的
