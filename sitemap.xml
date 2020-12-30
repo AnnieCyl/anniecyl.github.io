@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://anniecyl.github.io/2020/12/15/UML/</loc>
+    
+    <lastmod>2020-12-30T08:35:25.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://anniecyl.github.io/2018/11/08/android-faq/</loc>
     
     <lastmod>2020-12-25T08:33:04.166Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://anniecyl.github.io/2020/12/14/Design-Patterns/</loc>
     
     <lastmod>2020-12-18T03:02:10.661Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://anniecyl.github.io/2020/12/15/UML/</loc>
-    
-    <lastmod>2020-12-15T06:19:00.640Z</lastmod>
     
   </url>
   
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/10/23/AndroidX/</loc>
+    <loc>http://anniecyl.github.io/2018/10/17/hexo-%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-12-11T02:54:09.303Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/10/17/hexo-%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://anniecyl.github.io/2018/10/23/AndroidX/</loc>
     
     <lastmod>2020-12-11T02:54:09.303Z</lastmod>
     
