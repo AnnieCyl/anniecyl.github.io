@@ -142,3 +142,10 @@ implementation(name:'lib2',ext:'aar')
   zipStoreBase=GRADLE_USER_HOME
   zipStorePath=wrapper/dist
   ```
+Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接
+
+1. 使用 USB 数据连接手机和电脑
+2. 在 PC 端运行 cmd 命令：`adb devices`，能看到已经连接的设备
+3. 输入 `adb tcpip 8888`
+4. 断开手机和电脑的 USB 连接
+5. 假设此时手机的 ip 是 192.168.43.68，则在 PC 端 cmd 输入 `adb connect 192.168.43.68:8888`，即可连接成功
