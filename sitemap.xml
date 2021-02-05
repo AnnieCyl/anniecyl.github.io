@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://anniecyl.github.io/2018/11/08/android-faq/</loc>
+    
+    <lastmod>2021-02-05T01:56:13.142Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://anniecyl.github.io/2021/01/27/Android-Bluetooth/</loc>
     
     <lastmod>2021-01-27T11:09:41.821Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://anniecyl.github.io/2020/10/18/Kotlin-Study/</loc>
     
     <lastmod>2021-01-21T03:21:17.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://anniecyl.github.io/2018/11/08/android-faq/</loc>
-    
-    <lastmod>2021-01-21T03:20:18.335Z</lastmod>
     
   </url>
   
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2018/06/21/I-am-back/</loc>
+    <loc>http://anniecyl.github.io/2015/03/24/Import-from-Another-YouTrack-Server/</loc>
     
     <lastmod>2020-12-11T02:54:09.295Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2015/03/24/Import-from-Another-YouTrack-Server/</loc>
+    <loc>http://anniecyl.github.io/2018/06/21/I-am-back/</loc>
     
     <lastmod>2020-12-11T02:54:09.295Z</lastmod>
     
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2015/02/14/ERROR-Deployer-not-found-github/</loc>
+    <loc>http://anniecyl.github.io/2015/03/02/mirror-site/</loc>
     
     <lastmod>2020-12-11T02:54:09.293Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://anniecyl.github.io/2015/03/02/mirror-site/</loc>
+    <loc>http://anniecyl.github.io/2015/02/14/ERROR-Deployer-not-found-github/</loc>
     
     <lastmod>2020-12-11T02:54:09.293Z</lastmod>
     
