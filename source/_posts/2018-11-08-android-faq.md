@@ -142,7 +142,7 @@ implementation(name:'lib2',ext:'aar')
   zipStoreBase=GRADLE_USER_HOME
   zipStorePath=wrapper/dist
   ```
-Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接
+# Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接
 
 1. 使用 USB 数据连接手机和电脑
 2. 在 PC 端运行 cmd 命令：`adb devices`，能看到已经连接的设备
