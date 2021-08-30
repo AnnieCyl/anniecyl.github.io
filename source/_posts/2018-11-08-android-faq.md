@@ -149,3 +149,15 @@ implementation(name:'lib2',ext:'aar')
 3. 输入 `adb tcpip 8888`
 4. 断开手机和电脑的 USB 连接
 5. 假设此时手机的 ip 是 192.168.43.68，则在 PC 端 cmd 输入 `adb connect 192.168.43.68:8888`，即可连接成功
+
+# Q14. Error:java.lang.NullPointerException(no error message)
+
+工程代码切到大半年前的一个 commit，那个时候编译是没有问题，但是现在代码切回去编译就会提示 `Error:java.lang.NullPointerException(no error message)`。因为之前编译是没有问题的，所以肯定不是代码的问题，应该就是编译环境和依赖的版本导致的。
+
+现在使用的 AndroidStudio 的版本是 4.1 的，那就把 gradle 也同步升级一下，在工程目录下的 `build.gradle` 里面将 gradle 版本升级到 4.1.2：
+`classpath 'com.android.tools.build:gradle:4.1.2'`
+
+然后工程目录的 `gradle` 文件夹下的 `` 升级  gradle 版本：
+`distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip`
+
+重新编译工程就可以了。
