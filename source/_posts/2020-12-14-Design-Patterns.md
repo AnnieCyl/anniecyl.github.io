@@ -10,8 +10,8 @@ tags:
 * 单一职责原则（Single Responsibility Principle，简称SRP）
 * 开闭原则（Open Close Principle，简称OCP）：对扩展开放，对修改关闭。
 * 接口隔离原则（InterfaceSegregation Principles，简称ISP）：客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。
-* 里氏替换原则（Liskov Substitution Principle，简称LSP）：所有引用基类的地方必须能透明地使用其子类的对象。
-* 依赖倒置原则（Dependence Inversion Principle，简称DIP）：模块间通过接口依赖，实现类之间不发生直接的依赖关系。
+* 里氏替换原则（Liskov Substitution Principle，简称LSP）：所有引用基类的地方必须能透明地使用其子类的对象。也就是，只要父类能出现的地方，子类就可以出现，而且替换为子类也不会产生任何错误或异常，使用者可能根本就不需要知道是父类还是子类。
+* 依赖倒置原则（Dependence Inversion Principle，简称DIP）：模块间通过接口依赖，实现类之间不发生直接的依赖关系。面向接口编程，或者说是面向抽象编程，这里的抽象指的是接口或者抽象类。
 * 迪米特原则（Law of Demeter，简称LOD）也称为最少知识原则（Least Knowledge Principle）：一个对象应该对其他对象有最少的了解，也就是关于如何松耦合，一个类应该对自己需要耦合或调用的类知道得最少。
 
 ## 创建型模式

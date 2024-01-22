@@ -161,3 +161,41 @@ implementation(name:'lib2',ext:'aar')
 `distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip`
 
 重新编译工程就可以了。
+
+# Q15.JNI 问题： java.lang.NoSuchFieldError
+
+在 java 上定义了一个类 A，里面包含一个类 B 的字段
+```java
+public class A {
+    private B fieldB;
+}
+
+public class B {
+    private int age;
+    private String name;
+}
+```
+
+然后定义的 JNI 接口有一个参数传的是类 A 的对象：
+```java
+public class TestJNI {
+    ...
+    public native int testMethod(A aObj);
+    ...
+}
+```
+
+在 jni 层想要获取 A 对象的 B 字段进行设置：
+```c
+JNIEXPORT jint JNICALL
+Java_com_example_TestJNI_testMethod(JNIEnv *env, jobject thiz, jobject aObj) {
+    jclass aObjCls = (*env)->GetObjectClass(env, aObj);
+    jobject fieldB = (*env)->GetObjectField(env, aObj, (*env)->GetFieldID(env, aObjCls, "fieldB", "com/example/B"));
+}
+```
+注意：在 SDK 25 的时候，这么写是没有问题的。但是在 SDK 29（不确定从哪个 SDK 之后）这么写就会返回“java.lang.NoSuchFieldError”的问题，必须得这么写（GetFieldID 时 fieldB 的签名前面多了“L”，后面多了“;”）：
+```c
+jobject fieldB = (*env)->GetObjectField(env, aObj, (*env)->GetFieldID(env, aObjCls, "fieldB", "Lcom/example/B;"));
+```
+
+https://stackoverflow.com/questions/15783344/get-object-from-an-object-with-jni-in-c
