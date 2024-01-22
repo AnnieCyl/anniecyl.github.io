@@ -1,48 +1,37 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>使用 hexo 搭建博客</title><link rel="shortcut icon" href="/images/avatar.png"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/css/highlight.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"></head><body><nav class="main-nav"><a href="/">Home</a><a href="/archives">Archives</a><a href="/about">About</a></nav><div class="profile"><section id="wrapper"><header id="header"><a href="/about"><img class="2x" id="avatar" src="/images/avatar.png"></a><h1>Annie's Blog</h1></header></section></div><section class="post" id="wrapper"><article><header><h1>使用 hexo 搭建博客</h1><h2 class="headline">2014-12-06 15:41:13·1,162 words
-·5 minutes read<span class="tags"></span></h2></header><div id="toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装软件"><span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册-github-账号"><span class="toc-text">注册 github 账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建-github-库"><span class="toc-text">创建 github 库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始-hexo-吧"><span class="toc-text">开始 hexo 吧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-hexo"><span class="toc-text">安装 hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建博客"><span class="toc-text">搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成-ssh-key"><span class="toc-text">生成 ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加-ssh-key到-github"><span class="toc-text">添加 ssh key到 github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改博客配置"><span class="toc-text">修改博客配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博客"><span class="toc-text">发布博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写博客"><span class="toc-text">写博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改博客主题"><span class="toc-text">修改博客主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol></div><section id="post-body"><h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="noopener">nodejs</a></li>
-<li><a href="http://git-scm.com/downloads" target="_blank" rel="noopener">git</a></li>
-<li><a href="http://www.syntevo.com/smartgit/" target="_blank" rel="noopener">smartgit</a> 这个主要是为了搭建好博客后方便博客源码的管理，比起 git bash 的命令行操作好用。</li>
-</ul>
-<h1 id="注册-github-账号"><a href="#注册-github-账号" class="headerlink" title="注册 github 账号"></a>注册 github 账号</h1><p>在 <a href="https://github.com/" target="_blank" rel="noopener">github</a> 上注册一个账号。</p>
-<h1 id="创建-github-库"><a href="#创建-github-库" class="headerlink" title="创建 github 库"></a>创建 github 库</h1><p>在 github 上用你的 github 账号的用户名创建一个 repository，如我的 github 账户的用户名为 AnnieCyl，那么我就要创建一个名为 <strong>anniecyl</strong>.github.io 的 repository，注意：repository 的名字要以 <strong>.github.io</strong> 结尾，且必须与你的 github 账号的用户名一致，否则最后将无法打开你的博客页面。如下：<br><img src="/img/2014-12-06-start-using-hexo/1.png" alt="1"></p>
-<p>默认生成的 repository 只有 master 分支，这个分支我们用来发布我们的博客。我们可以再建一个 develop 分支，这个分支是用来编辑博客的文章，编辑好的博客文章再通过 hexo 发布到 master 分支上。如下：<br><img src="/img/2014-12-06-start-using-hexo/2.png" alt="2"></p>
-<p>将这个 repository 从 github 上 clone 到本地，可以在以下地方看到这个 repository 的地址：<br><img src="/img/2014-12-06-start-using-hexo/3.png" alt="3"></p>
-<p>然后用 git bash 命令行 clone：<code>git clone https://github.com/AnnieCyl/anniecyl.github.io.git</code>，如下：<br><img src="/img/2014-12-06-start-using-hexo/4.png" alt="4"></p>
-<p>或者用 smartgit 的 clone 向导界面操作，如下：<br><img src="/img/2014-12-06-start-using-hexo/5.png" alt="5"></p>
-<h1 id="开始-hexo-吧"><a href="#开始-hexo-吧" class="headerlink" title="开始 hexo 吧"></a>开始 hexo 吧</h1><h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><p>打开 cmd 命令行，执行如下命令（前提是已经安装了 nodejs）：<br><code>npm install -g hexo</code></p>
-<h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>使用 git bash 或者 smartgit 把前面从 github 上 clone 到本地的 repository 切换到 develop 分支，然后打开本地 repository 文件夹，在此文件夹中用 cmd 命令行依次执行下面的命令：<br><code>hexo init</code><br><code>npm install</code></p>
-<p>到此步你可以在本地查看现在博客搭建成什么样了，运行 <code>hexo server</code>，然后打开 <code>http://localhost:4000/</code> 即可看到。但是此时查看的博客还只是在本地，还未将你的博客发布到 github 上。</p>
-<h2 id="生成-ssh-key"><a href="#生成-ssh-key" class="headerlink" title="生成 ssh key"></a>生成 ssh key</h2><p>现在我们要将本地 repository 与远程的 github 建立联系，我们需要使用 ssh keys。</p>
-<ul>
-<li>如果你的 ~/.ssh 目录下已经有名为 id_rsa 的 ssh key 了，且这个 ssh key 还未用在其他 github 账户上，那么你可以直接使用这个 id_rsa，github 默认是在 ~/.ssh 目录下查找 id_rsa 的 ssh key。</li>
-<li>如果你的 ~/.ssh 目录下的 id_rsa 已经被用在其他 github 账户了，那么你就要再生成另外的 ssh key，并且对 ~/.ssh/config 文件进行配置来告诉 github 使用新生成的这个 ssh key。方法如下：<br>（1）打开 git bash，cd 到 ~/.ssh 目录，然后输入以下命令：<code>ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;</code>，会提示输入 ssh key 的文件名，输入 ssh key 文件名后回车，会提示输入密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。<br>（2）在 config 中添加如下配置：<pre><code>host github.com
-    CheckHostIP no
-    user git
-    hostname github.com
-    port 22
-    identityfile ~/.ssh/你刚生成的 ssh key 的名称
-</code></pre></li>
-</ul>
-<h2 id="添加-ssh-key到-github"><a href="#添加-ssh-key到-github" class="headerlink" title="添加 ssh key到 github"></a>添加 ssh key到 github</h2><p>在本机生成 ssh key 之后，需要添加到 github 上，以完成 ssh 链接的设置。<br>（1）打开 ssh key 文件（id_rsa.pub 或者你新生成的 .pub 文件），拷贝文件内容。<br>（2）打开你的 github 账号，点击右上角的 Settings-&gt; SSH keys —&gt; Add SSH key，将上面拷贝的内容粘贴进去，最后点击下方的“Add key”。<br>可在 git bash 中执行 <code>ssh -T git@github.com</code> 看看设置是否成功。</p>
-<h2 id="修改博客配置"><a href="#修改博客配置" class="headerlink" title="修改博客配置"></a>修改博客配置</h2><p>发布博客之前，需要修改配置，才能够将博客部署到 github 上。打开本地 repository 目录下的 _config.yml，比如我的配置如下：</p>
-<pre><code>deploy:
-    type: github
-    repository: git@github.com:AnnieCyl/anniecyl.github.io.git
-    branch: master
-</code></pre><p><code>repository</code> 配置项要使用 ssh 地址，可在 github 上查看你的 repository 的 ssh 地址。</p>
-<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><p>在本地 repository 中执行以下命令：<br><code>hexo g</code><br><code>hexo d</code></p>
-<p>ok 啦，接下来你就可以在浏览器中输入：你的 github 用户名.github.io(比如我的博客：anniecyl<br>.github.io)看到你的博客了。</p>
-<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>在本地 repository 中执行以下命令：<br><code>hexo new &quot;my new post&quot;</code><br>会自动在本地 repository 的 <code>source/_posts</code> 下生成 <code>my new post.md</code>，编辑该文件后就可以发布到博客上了。</p>
-<h2 id="修改博客主题"><a href="#修改博客主题" class="headerlink" title="修改博客主题"></a>修改博客主题</h2><p>在 <code>https://hexo.io/themes/</code> 上有很多现有的主题可以直接拿来用。每个主题都有提供使用的方法。其实只需两个步骤：</p>
-<ol>
-<li>将想要用的主题 clone 到你的博客工程的 <code>themes</code> 路径下</li>
-<li>修改 <code>_config.yml</code> 中的 <code>theme</code> 为主题名称</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://hexo.io/docs/" target="_blank" rel="noopener">Hexo</a></li>
-<li><a href="http://www.blogjava.net/lishunli/archive/2012/03/08/371556.html" target="_blank" rel="noopener">GitHub多账户使用</a></li>
-<li><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="noopener">Hexo搭建Github静态博客</a></li>
-<li><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="noopener">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
-</ul>
-</section><nav id="post-nav"><span class="prev"><a href="/2015/02/14/ERROR-Deployer-not-found-github/"><span class="arrow">←</span>Newer Posts</a></span><span class="next"></span></nav></article></section><footer id="footer"><div id="social"><a class="symbol" href="https://github.com/AnnieCyl"><i class="fa fa-github"></i></a></div><p class="small">© Copyright 2018 &nbsp;<i class="fa fa-heart" aria-hidden="true">&nbsp;Annie</i></p><p class="small">Powered by &nbsp;<a href="https://hexo.io/">Hexo &nbsp;</a>Theme By &nbsp;<a href="https://github.com/AnnieCyl/hexo-theme-annie">Annie</a></p></footer></body></html>
+extends includes/layout
+
+block content
+
+    section#wrapper.post
+        article
+            header
+                h1!=page.title
+                h2.headline!=date(page.date, 'YYYY-MM-DD HH:mm:ss')
+                    |·
+                    |#{wordcount(page.content)} words
+                    |·
+                    |#{min2read(page.content)} minutes read
+                    span.tags
+
+            if toc(page.content)
+                div#toc!=toc(page.content,{list_number:false})
+
+            section#post-body!=page.content
+
+            - var prev = page.prev ? page.prev.path : false;
+            - var next = page.next ? page.next.path : false;
+            nav#post-nav
+                span.prev
+                    if page.prev
+                        a(href=url_for(prev))
+                            span.arrow ←
+                            | Newer Posts
+                span.next
+                    if page.next
+                        a(href=url_for(next))
+                            | Older Posts
+                            span.arrow →
+
+
+
+
