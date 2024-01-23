@@ -1,37 +1,234 @@
-extends includes/layout
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Android FAQ | Annie's Blog</title><meta name="author" content="Annie,289927039@qq.com"><meta name="copyright" content="Annie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Q 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android找到自己本地的 android-sdk： 打开这个目录后，查看 ndk-bundle -&gt; toolchains 里面是否确实缺少 mips64el 相关的文件。 解决办法：  点击这里下载 NDK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android FAQ">
+<meta property="og:url" content="http://anniecyl.github.io/2018/11/08/android-faq/index.html">
+<meta property="og:site_name" content="Annie&#39;s Blog">
+<meta property="og:description" content="Q 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android找到自己本地的 android-sdk： 打开这个目录后，查看 ndk-bundle -&gt; toolchains 里面是否确实缺少 mips64el 相关的文件。 解决办法：  点击这里下载 NDK">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2018-11-08T02:03:41.000Z">
+<meta property="article:modified_time" content="2021-08-31T06:44:56.000Z">
+<meta property="article:author" content="Annie">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://anniecyl.github.io/2018/11/08/android-faq/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Android FAQ',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021 08 31 14:44:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-block content
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-    section#wrapper.post
-        article
-            header
-                h1!=page.title
-                h2.headline!=date(page.date, 'YYYY-MM-DD HH:mm:ss')
-                    |·
-                    |#{wordcount(page.content)} words
-                    |·
-                    |#{min2read(page.content)} minutes read
-                    span.tags
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Annie's Blog"><span class="site-name">Annie's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Android FAQ</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-11-08T02:03:41.000Z" title="发表于 2018 11 08 10:03:41">2018 11 08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-31T06:44:56.000Z" title="更新于 2021 08 31 14:44:56">2021 08 31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Android FAQ"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Q-1-No-toolchains-found-in-the-NDK-toolchains-folder-for-ABI-with-prefix-mips64el-linux-android"><a href="#Q-1-No-toolchains-found-in-the-NDK-toolchains-folder-for-ABI-with-prefix-mips64el-linux-android" class="headerlink" title="Q 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android"></a>Q 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android</h1><p>找到自己本地的 android-sdk：<br><img src="/img/2018-11-08-android-faq/as-sdk.jpg" alt="as-sdk"></p>
+<p>打开这个目录后，查看 <code>ndk-bundle</code> -&gt; <code>toolchains</code> 里面是否确实缺少 mips64el 相关的文件。</p>
+<p>解决办法：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/ndk/downloads/?hl=zh-cn">点击这里</a>下载 NDK 包。</li>
+<li>解压之后打开 <code>toolchains</code> 文件夹，跟本地 <code>toolchains</code> 文件夹做对比，找到其缺少的文件夹，复制过去。</li>
+</ul>
+<h1 id="Q-2-Installation-failed-with-message-Invalid-File"><a href="#Q-2-Installation-failed-with-message-Invalid-File" class="headerlink" title="Q 2. Installation failed with message Invalid File"></a>Q 2. Installation failed with message Invalid File</h1><p>如果设备上应用明明已经卸载了，但是 AS 在 Run 这个应用的时候还是一直提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Installation failed with message Invalid File: xxxx. It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.</span><br><span class="line">WARNING: Uninstalling will remove the application data!</span><br><span class="line">Do you want to uninstall the existing application?</span><br></pre></td></tr></table></figure>
+<p>可以尝试以下这个方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings&gt;Build,execute,deployment&gt;Instant run&gt;Enable instant run to hot swap code /resource change on deploy(unchecked this option)</span><br></pre></td></tr></table></figure>
 
-            if toc(page.content)
-                div#toc!=toc(page.content,{list_number:false})
+<h1 id="Q-3-Module-not-specified"><a href="#Q-3-Module-not-specified" class="headerlink" title="Q 3. Module not specified"></a>Q 3. Module not specified</h1><p>如果 app 模块上有个红叉：<br><img src="/img/2018-11-08-android-faq/module-not-specified-1.png" alt="module-not-specified-1"><br>且运行的时候弹出如下的提示框：<br><img src="/img/2018-11-08-android-faq/module-not-specified-2.png" alt="module-not-specified-2"><br>在 settings.gradle 中，先注释掉 include’：app’，然后单击 File &gt; Sync Project with Gradle files。<br>此后在 settings.gradle 恢复 include’：app’，再 Sync 工程。</p>
+<h1 id="Q-4-ERROR-SSL-peer-shut-down-incorrectly"><a href="#Q-4-ERROR-SSL-peer-shut-down-incorrectly" class="headerlink" title="Q 4. ERROR: SSL peer shut down incorrectly"></a>Q 4. ERROR: SSL peer shut down incorrectly</h1><p>project 级别的<em>build.gradle</em> 里面把 <code>jcenter()</code> 注释掉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        maven &#123; url &#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27; &#125;</span><br><span class="line">//        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-            section#post-body!=page.content
+<h1 id="Q-5-Command-line-is-too-long"><a href="#Q-5-Command-line-is-too-long" class="headerlink" title="Q 5. Command line is too long"></a>Q 5. Command line is too long</h1><p>修改项目下 <code>.idea\workspace.xml</code>，找到标签 <code>&lt;component name=&quot;PropertiesComponent&quot;&gt;</code>， 在标签里加一行<code>&lt;property name=&quot;dynamic.classpath&quot; value=&quot;true&quot; /&gt;</code></p>
+<h1 id="Q-6-Android-Studio-Build-Output-栏内汉字出现乱码"><a href="#Q-6-Android-Studio-Build-Output-栏内汉字出现乱码" class="headerlink" title="Q 6. Android Studio Build Output 栏内汉字出现乱码"></a>Q 6. Android Studio Build Output 栏内汉字出现乱码</h1><p><img src="/img/2018-11-08-android-faq/build-output-mass-code.png" alt="build-output-mass-code"><br>打开 Android Studio 双击 shift 或者点击以下搜索按钮：<br><img src="/img/2018-11-08-android-faq/search.png" alt="search"><br>在搜索框内输入 Edit Custom VM Options：<br><img src="/img/2018-11-08-android-faq/edit-custom-vm-options.png" alt="edit-custom-vm-options"><br>点击第一个选项打开 studio64.exe.vmoptions（若没有此文件，则先创建），添加一句代码 <code>-Dfile.encoding=UTF-8</code>，并编译一下，必须编译，否则 AS 重启的话无法正常打开。<br><img src="/img/2018-11-08-android-faq/studio64-vmoptions.png" alt="studio64-vmoptions"><br>编译以后重启 AS 即可。</p>
+<h1 id="Q-7-Program-type-already-present"><a href="#Q-7-Program-type-already-present" class="headerlink" title="Q 7. Program type already present"></a>Q 7. Program type already present</h1><p>工程结构是这样的：</p>
+<ol>
+<li>lib1 定义的是各种接口文件，导出成 lib1.aar</li>
+<li>lib2 引用 lib1.aar，并对 lib1 的接口进行实现，导出成 lib2.aar</li>
+<li>app 引用 lib1 和 lib2，但是编译的时候一直会提示 <code>Program type already present</code> 的错误，明明只有 lib1 中定义一次的 interface，也还是会提示 <code>Program type already present</code> 这个错误</li>
+</ol>
+<p>各种尝试 <code>implementation</code>、<code>api</code>、<code>compileOnly</code> 来引用这两个 aar，依然会出现这个问题（非常抓狂。。。）。最后看到一个网友说不要使用 <code>implementation fileTree(include: [&#39;*.jar&#39;, &#39;*.aar&#39;], dir: &#39;libs&#39;)</code>，否则就会出现 <code>Program type already present</code> 问题。</p>
+<p>于是终于发现在 app 的 gradle 中要么使用 <code>implementation fileTree(include: [&#39;*.jar&#39;, &#39;*.aar&#39;], dir: &#39;libs&#39;)</code>，一下子引入 libs 下所有的 jar 和 aar：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation fileTree(include: [&#x27;*.jar&#x27;, &#x27;*.aar&#x27;], dir: &#x27;libs&#x27;)</span><br><span class="line">// implementation(name:&#x27;lib1&#x27;,ext:&#x27;aar&#x27;)</span><br><span class="line">// implementation(name:&#x27;lib2&#x27;,ext:&#x27;aar&#x27;)</span><br></pre></td></tr></table></figure>
+<p>要么就是不用 <code>implementation fileTree(include: [&#39;*.jar&#39;, &#39;*.aar&#39;], dir: &#39;libs&#39;)</code>，直接引用具体的 aar：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// implementation fileTree(include: [&#x27;*.jar&#x27;, &#x27;*.aar&#x27;], dir: &#x27;libs&#x27;)</span><br><span class="line">implementation(name:&#x27;lib1&#x27;,ext:&#x27;aar&#x27;)</span><br><span class="line">implementation(name:&#x27;lib2&#x27;,ext:&#x27;aar&#x27;)</span><br></pre></td></tr></table></figure>
+<p>如果同时使用 <code>implementation fileTree</code> 和引用具体的 aar（如下），就会出现 <code>Program type already present</code> 这个错。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation fileTree(include: [&#x27;*.jar&#x27;, &#x27;*.aar&#x27;], dir: &#x27;libs&#x27;)</span><br><span class="line">implementation(name:&#x27;lib1&#x27;,ext:&#x27;aar&#x27;)</span><br><span class="line">implementation(name:&#x27;lib2&#x27;,ext:&#x27;aar&#x27;)</span><br></pre></td></tr></table></figure>
 
-            - var prev = page.prev ? page.prev.path : false;
-            - var next = page.next ? page.next.path : false;
-            nav#post-nav
-                span.prev
-                    if page.prev
-                        a(href=url_for(prev))
-                            span.arrow ←
-                            | Newer Posts
-                span.next
-                    if page.next
-                        a(href=url_for(next))
-                            | Older Posts
-                            span.arrow →
+<h1 id="Q-8-android-textAllCaps-”false”"><a href="#Q-8-android-textAllCaps-”false”" class="headerlink" title="Q 8. android:textAllCaps&#x3D;”false”"></a>Q 8. android:textAllCaps&#x3D;”false”</h1><p>在界面添加 Button 的时候，默认 Button 显示的字母都是大写的，即使它的 text 属性设置的都是小写字母。</p>
+<p>解决办法：在 Button 的属性里加上 android:textAllCaps&#x3D;”false” 即可。</p>
+<h1 id="Q-9-Installed-Build-Tools-revision-29-0-2-is-corrupted-Remove-and-install-again-using-the-SDK-Manager"><a href="#Q-9-Installed-Build-Tools-revision-29-0-2-is-corrupted-Remove-and-install-again-using-the-SDK-Manager" class="headerlink" title="Q 9. Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager"></a>Q 9. Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager</h1><p>解决办法：</p>
+<ol>
+<li>Open the SDK manager by clicking on the icon in the top right of Android Studio. (Or go to File &gt; Settings &gt; Appearance &amp; Behavior &gt; System Settings &gt; Android SDK)</li>
+<li>Open <strong>SDK Tools</strong> tab</li>
+<li>At the bottom-right, click “Show Package Details”</li>
+<li>Find <strong>Android SDK Build-Tools</strong> and uncheck the checkbox next to 29.0.2</li>
+<li>Click apply in the bottom of the window. That will delete the component.</li>
+<li>Now check the checkbox next to 29.0.2</li>
+<li>Click apply in the bottom of the window. That will reinstall it.</li>
+</ol>
+<h1 id="Q-10-查看-apk-信息（包名、版本号、版本名称、兼容-api-级别、启动-Activity-等）"><a href="#Q-10-查看-apk-信息（包名、版本号、版本名称、兼容-api-级别、启动-Activity-等）" class="headerlink" title="Q 10. 查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）"></a>Q 10. 查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）</h1><ol>
+<li>找到 Android SDK 目录下的 <code>build-tools</code> 文件夹，会有不同版本的，随便点开一个，可以看到 aapt</li>
+<li>可以将 aapt 路径添加到环境变量中，也可以直接在 aapt 所在目录下启动命令行工具</li>
+<li>在命令行工具中输入以下命令获取 apk 信息，比如要获取的 apk 是 app-debug.apk，则运行：<code>aapt dump badging app-debug.apk</code>。当然，apk 需要写全路径</li>
+</ol>
+<h1 id="Q-11-Program-type-already-present-BuildConfig"><a href="#Q-11-Program-type-already-present-BuildConfig" class="headerlink" title="Q 11. Program type already present: BuildConfig"></a>Q 11. Program type already present: BuildConfig</h1><p>检查各个模块的 <code>AndroidManifest.xml</code> 里的 package 是不是有一样的</p>
+<h1 id="Q12-java-io-EOFException-Unexpected-end-of-ZLIB-input-stream"><a href="#Q12-java-io-EOFException-Unexpected-end-of-ZLIB-input-stream" class="headerlink" title="Q12. java.io.EOFException: Unexpected end of ZLIB input stream"></a>Q12. java.io.EOFException: Unexpected end of ZLIB input stream</h1><p>原因：gradle 版本问题<br>修改以下两个地方：</p>
+<ol>
+<li>工程的 <code>build.gradle</code> 文件中将 gradle 版本号改为可以正常运行的版本号  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    // 改成可以正常运行的版本号</span><br><span class="line">    classpath &#x27;com.android.tools.build:gradle:3.1.2&#x27; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>工程的 <code>gradle -&gt; wrapper -&gt; gradle-wrapper.properties</code> 文件中的 gradle 版本也改成可以正常运行的版本号  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">// 改为可以正常运行项目的 gradle 版本号</span><br><span class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-all.zip</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dist</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Q13-adb-connect-时报错：由于目标计算机积极拒绝，无法连接"><a href="#Q13-adb-connect-时报错：由于目标计算机积极拒绝，无法连接" class="headerlink" title="Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接"></a>Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接</h1><ol>
+<li>使用 USB 数据连接手机和电脑</li>
+<li>在 PC 端运行 cmd 命令：<code>adb devices</code>，能看到已经连接的设备</li>
+<li>输入 <code>adb tcpip 8888</code></li>
+<li>断开手机和电脑的 USB 连接</li>
+<li>假设此时手机的 ip 是 192.168.43.68，则在 PC 端 cmd 输入 <code>adb connect 192.168.43.68:8888</code>，即可连接成功</li>
+</ol>
+<h1 id="Q14-Error-java-lang-NullPointerException-no-error-message"><a href="#Q14-Error-java-lang-NullPointerException-no-error-message" class="headerlink" title="Q14. Error:java.lang.NullPointerException(no error message)"></a>Q14. Error:java.lang.NullPointerException(no error message)</h1><p>工程代码切到大半年前的一个 commit，那个时候编译是没有问题，但是现在代码切回去编译就会提示 <code>Error:java.lang.NullPointerException(no error message)</code>。因为之前编译是没有问题的，所以肯定不是代码的问题，应该就是编译环境和依赖的版本导致的。</p>
+<p>现在使用的 AndroidStudio 的版本是 4.1 的，那就把 gradle 也同步升级一下，在工程目录下的 <code>build.gradle</code> 里面将 gradle 版本升级到 4.1.2：<br><code>classpath &#39;com.android.tools.build:gradle:4.1.2&#39;</code></p>
+<p>然后工程目录的 <code>gradle</code> 文件夹下的 &#96;&#96; 升级  gradle 版本：<br><code>distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip</code></p>
+<p>重新编译工程就可以了。</p>
+<h1 id="Q15-JNI-问题：-java-lang-NoSuchFieldError"><a href="#Q15-JNI-问题：-java-lang-NoSuchFieldError" class="headerlink" title="Q15.JNI 问题： java.lang.NoSuchFieldError"></a>Q15.JNI 问题： java.lang.NoSuchFieldError</h1><p>在 java 上定义了一个类 A，里面包含一个类 B 的字段</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> B fieldB;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>然后定义的 JNI 接口有一个参数传的是类 A 的对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestJNI</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">testMethod</span><span class="params">(A aObj)</span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>在 jni 层想要获取 A 对象的 B 字段进行设置：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JNIEXPORT jint JNICALL</span><br><span class="line"><span class="title function_">Java_com_example_TestJNI_testMethod</span><span class="params">(JNIEnv *env, jobject thiz, jobject aObj)</span> &#123;</span><br><span class="line">    jclass aObjCls = (*env)-&gt;GetObjectClass(env, aObj);</span><br><span class="line">    jobject fieldB = (*env)-&gt;GetObjectField(env, aObj, (*env)-&gt;GetFieldID(env, aObjCls, <span class="string">&quot;fieldB&quot;</span>, <span class="string">&quot;com/example/B&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：在 SDK 25 的时候，这么写是没有问题的。但是在 SDK 29（不确定从哪个 SDK 之后）这么写就会返回“java.lang.NoSuchFieldError”的问题，必须得这么写（GetFieldID 时 fieldB 的签名前面多了“L”，后面多了“;”）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobject fieldB = (*env)-&gt;GetObjectField(env, aObj, (*env)-&gt;GetFieldID(env, aObjCls, <span class="string">&quot;fieldB&quot;</span>, <span class="string">&quot;Lcom/example/B;&quot;</span>));</span><br></pre></td></tr></table></figure>
 
-
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15783344/get-object-from-an-object-with-jni-in-c">https://stackoverflow.com/questions/15783344/get-object-from-an-object-with-jni-in-c</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://anniecyl.github.io">Annie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://anniecyl.github.io/2018/11/08/android-faq/">http://anniecyl.github.io/2018/11/08/android-faq/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://anniecyl.github.io" target="_blank">Annie's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/android/">android</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/02/20/DUKPT/" title="DUKPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">DUKPT</div></div></a></div><div class="next-post pull-right"><a href="/2018/11/07/navigation/" title="Navigation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Navigation</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/10/23/AndroidX/" title="AndroidX"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018 10 23</div><div class="title">AndroidX</div></div></a></div><div><a href="/2018/11/07/navigation/" title="Navigation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018 11 07</div><div class="title">Navigation</div></div></a></div><div><a href="/2020/10/18/Kotlin-Study/" title="Kotlin Study"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020 10 18</div><div class="title">Kotlin Study</div></div></a></div><div><a href="/2021/01/27/Android-Bluetooth/" title="Android Bluetooth"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021 01 27</div><div class="title">Android Bluetooth</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Annie</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-1-No-toolchains-found-in-the-NDK-toolchains-folder-for-ABI-with-prefix-mips64el-linux-android"><span class="toc-number">1.</span> <span class="toc-text">Q 1. No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-2-Installation-failed-with-message-Invalid-File"><span class="toc-number">2.</span> <span class="toc-text">Q 2. Installation failed with message Invalid File</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-3-Module-not-specified"><span class="toc-number">3.</span> <span class="toc-text">Q 3. Module not specified</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-4-ERROR-SSL-peer-shut-down-incorrectly"><span class="toc-number">4.</span> <span class="toc-text">Q 4. ERROR: SSL peer shut down incorrectly</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-5-Command-line-is-too-long"><span class="toc-number">5.</span> <span class="toc-text">Q 5. Command line is too long</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-6-Android-Studio-Build-Output-%E6%A0%8F%E5%86%85%E6%B1%89%E5%AD%97%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">Q 6. Android Studio Build Output 栏内汉字出现乱码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-7-Program-type-already-present"><span class="toc-number">7.</span> <span class="toc-text">Q 7. Program type already present</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-8-android-textAllCaps-%E2%80%9Dfalse%E2%80%9D"><span class="toc-number">8.</span> <span class="toc-text">Q 8. android:textAllCaps&#x3D;”false”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-9-Installed-Build-Tools-revision-29-0-2-is-corrupted-Remove-and-install-again-using-the-SDK-Manager"><span class="toc-number">9.</span> <span class="toc-text">Q 9. Installed Build Tools revision 29.0.2 is corrupted. Remove and install again using the SDK Manager</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-10-%E6%9F%A5%E7%9C%8B-apk-%E4%BF%A1%E6%81%AF%EF%BC%88%E5%8C%85%E5%90%8D%E3%80%81%E7%89%88%E6%9C%AC%E5%8F%B7%E3%80%81%E7%89%88%E6%9C%AC%E5%90%8D%E7%A7%B0%E3%80%81%E5%85%BC%E5%AE%B9-api-%E7%BA%A7%E5%88%AB%E3%80%81%E5%90%AF%E5%8A%A8-Activity-%E7%AD%89%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">Q 10. 查看 apk 信息（包名、版本号、版本名称、兼容 api 级别、启动 Activity 等）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-11-Program-type-already-present-BuildConfig"><span class="toc-number">11.</span> <span class="toc-text">Q 11. Program type already present: BuildConfig</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q12-java-io-EOFException-Unexpected-end-of-ZLIB-input-stream"><span class="toc-number">12.</span> <span class="toc-text">Q12. java.io.EOFException: Unexpected end of ZLIB input stream</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q13-adb-connect-%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9A%E7%94%B1%E4%BA%8E%E7%9B%AE%E6%A0%87%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%AF%E6%9E%81%E6%8B%92%E7%BB%9D%EF%BC%8C%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5"><span class="toc-number">13.</span> <span class="toc-text">Q13. adb connect 时报错：由于目标计算机积极拒绝，无法连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q14-Error-java-lang-NullPointerException-no-error-message"><span class="toc-number">14.</span> <span class="toc-text">Q14. Error:java.lang.NullPointerException(no error message)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q15-JNI-%E9%97%AE%E9%A2%98%EF%BC%9A-java-lang-NoSuchFieldError"><span class="toc-number">15.</span> <span class="toc-text">Q15.JNI 问题： java.lang.NoSuchFieldError</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/27/Android-Bluetooth/" title="Android Bluetooth">Android Bluetooth</a><time datetime="2021-01-27T08:27:37.000Z" title="发表于 2021 01 27 16:27:37">2021 01 27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/18/dotfile/" title="dotfile">dotfile</a><time datetime="2020-12-18T02:49:14.000Z" title="发表于 2020 12 18 10:49:14">2020 12 18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/15/UML/" title="UML">UML</a><time datetime="2020-12-15T02:37:15.000Z" title="发表于 2020 12 15 10:37:15">2020 12 15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/14/Design-Patterns/" title="Design Patterns">Design Patterns</a><time datetime="2020-12-14T02:56:08.000Z" title="发表于 2020 12 14 10:56:08">2020 12 14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/10/18/Kotlin-Study/" title="Kotlin Study">Kotlin Study</a><time datetime="2020-10-18T12:32:10.000Z" title="发表于 2020 10 18 20:32:10">2020 10 18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Annie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,32 +1,205 @@
-extends includes/layout
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Annie's Blog - good good study, day day up</title><meta name="author" content="Annie,289927039@qq.com"><meta name="copyright" content="Annie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Annie&#39;s Blog">
+<meta property="og:url" content="http://anniecyl.github.io/page/3/index.html">
+<meta property="og:site_name" content="Annie&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Annie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://anniecyl.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Annie\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024 01 23 08:49:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-block content
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-    section#wrapper.home
-        ul#post-list
-            each item in page.posts.sort('date', -1).toArray()
-                - var postTitle = item.title || 'No Title'
-                - var createDate = date(item.date, 'YYYY-MM-DD')
-                li
-                    aside.dates=createDate
-                    if item.link
-                        a(href=url_for(item.link))= postTitle
-                            h2!=item.excerpt
-                    else
-                        a(href=url_for(item.path))= postTitle
-                            h2!=item.excerpt
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Annie's Blog"><span class="site-name">Annie's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Annie's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/21/install-git/" title="在 Mac 上安装 Git">在 Mac 上安装 Git</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-21T11:59:59.000Z" title="发表于 2018 06 21 19:59:59">2018 06 21</time></span></div><div class="content">有两种方式在 Mac 上安装 Git：
 
-        nav#post-nav
-            span.prev(style='padding-left: 20px;')
-                if page.prev
-                    a(href=url_for(page.prev_link))
-                        span.arrow ←
-                        | Newer Posts
-            span.next
-                if page.next
-                    a(href=url_for(page.next_link))
-                        | Older Posts
-                        span.arrow →
+安装 homebrew，然后通过 homebrew 安装 Git，具体方法请参考 homebrew 的文档：http://brew.sh/。
+直接从 AppStore 安装 Xcode，Xcode 集成了 Git，不过默认没有安装，你需要运行 Xcode，选择菜单“Xcode”-&gt;“Preferences”，在弹出窗口中找到“Downloads”，选择“Command Line Tools”，点“Install”就可以完成安装了。
+
+安装完 Git 其实还没有 .ssh 目录的，要执行生成密钥对的命令以后才会自动生成 .ssh 目录，并且新生成的密钥对都在 .ssh 目录下了。
+要修改密钥的读写权限，否则无法使用 Git。执行以下命令修改权限：chmod 644 ~/.ssh/authorized_keys如果出现 Permissions 0644 for ‘/root/.ssh/id_rsa’ are too open. 等错误显示了，只要把权限降到 0600 就ok了。chmod 0600 /root/.ssh/id_rsa然后就可以 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/21/macbook/" title="macbook">macbook</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-21T11:19:50.000Z" title="发表于 2018 06 21 19:19:50">2018 06 21</time></span></div><div class="content">Mac 和 Windows 的使用确实差很多，一段时间没用 mac，以我这堪比金鱼的记忆，就会忘记怎么用的。
+工具日常使用类
+Alfred：command+空格键，可以搜索电脑中所有程序。
+Manico：option+数字键，切换应用
+
+开发类常用功能
+同一个应用多个窗口间相互切换的快捷键：Command+~ 
+在QQ展示面板范围内，快捷键ஐcommand+N，将弹出第二个QQ登陆面板框，输入不同的账号和密码实现第二个QQ登陆。
+全屏幕截图：Command + shift + 3
+自定地区屏幕截图：Command + shift + 4
+快速到桌面：拇指和另外三个手指分开（拇指和另外三个手指合并就又回到显示桌面之前的窗口）
+强制结束应用程序：Command + option + esc，相当于 windows 的 control + alt + delete
+桌面切换：先使用Mission Control(三至四只手指向上推)，到右上角开设多一个视窗，再将你需要的视窗拖移到另一个桌面内(拖移需要在Mission Control的界面中进行)，再用三至四只手指向左右滑动来切换桌面。
+Ma ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/21/I-am-back/" title="坚持">坚持</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-21T04:33:07.000Z" title="发表于 2018 06 21 12:33:07">2018 06 21</time></span></div><div class="content">最近也是受到一些事情的影响，感觉需要振作起来，全方面地改造自己了。
+从现在开始积累自己学习的一点一滴，让以后的自己可以有更多选择的机会。
+坚持很重要！
+很久没更新博客了，今天上来提交博客，果然也是遇到了问题：
+
+现在 github 上添加了公钥（难道我之前没添加过？）：
+
+再测试是否可以连接到 github 上，$ ssh &#103;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2015/03/24/Import-from-Another-YouTrack-Server/" title="Import-from-Another-YouTrack-Server">Import-from-Another-YouTrack-Server</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2015-03-24T03:21:27.000Z" title="发表于 2015 03 24 11:21:27">2015 03 24</time></span></div><div class="content">被 youtrack 虐过几次，对它有一点不怀好感。。。其实主要了解了它的数据库以后也就好多了，安装的时候一定要先把数据库位置安排好了，便于日后维护。如果忘记数据库在哪里了，那也可以在这个地方找到：c:\ProgramData\JetBrains\YouTrack\conf\internal\wizard-configured.properties（参见：http://confluence.jetbrains.com/display/YTD6/Changing+Database+Location）
+今天是因为要转移 youtrack 了，所以在网上查了一下怎么把一台机器上的 youtrack 数据导入到另一台上。（参见 Import from Another YouTrack Server - YouTrack 6.x Documentation - Confluence）
+To import all issues in a project from one YouTrack server to another:
+
+Download the latest version of YouT ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2015/03/12/have-a-git-mess-on-your-hands/" title="git 误操作以后的步骤">git 误操作以后的步骤</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2015-03-12T08:32:56.000Z" title="发表于 2015 03 12 16:32:56">2015 03 12</time></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2015/03/02/mirror-site/" title="mirror-site">mirror-site</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2015-03-02T02:30:24.000Z" title="发表于 2015 03 02 10:30:24">2015 03 02</time></span></div><div class="content">一直有打算好好学学 powershell，可是总是到要写的时候临时抱佛脚。前段时间也是因为要写自动生成镜像的脚本，又临时抱佛脚了一下。虽然可能写得不是很优雅完美，但是这些代码还涉及到挺多方面的。所以干脆贴上来，供以后参考。当然，以后还是要系统的学一下 powershell。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915015115215315415515615 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2015/02/14/ERROR-Deployer-not-found-github/" title="ERROR Deployer not found: github">ERROR Deployer not found: github</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2015-02-14T02:28:28.000Z" title="发表于 2015 02 14 10:28:28">2015 02 14</time></span></div><div class="content">自从搭建了我的博客，2 个多月没再更新。结果今天想要发布博客的时候发现 hexo g 和 hexo d 居然不能用了，提示“ERROR Deployer not found: github”。
+于是上网查了，原来是 hexo 版本升级以后 _config.yml 配置里面不再支持 github，要将 github 改成 git:
+1234deploy:  type: git  repository: git@github.com:AnnieCyl/anniecyl.github.io.git  branch: master
 
 
+然后再安装一些新的插件：
+Modify package.jsonAdd hexo data to package.json.
+12345&#123;  &quot;hexo&quot;: &#123;    &quot;version&quot;: &quot;&quot;  &#125;&#125;
 
+Clean cache1hexo clean
+
+Install generators1234npm install hexo-generator-index - ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2014/12/06/start-using-hexo/" title="使用 hexo 搭建博客">使用 hexo 搭建博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2014-12-06T07:41:13.000Z" title="发表于 2014 12 06 15:41:13">2014 12 06</time></span></div><div class="content">安装软件
+nodejs
+git
+smartgit 这个主要是为了搭建好博客后方便博客源码的管理，比起 git bash 的命令行操作好用。
+
+注册 github 账号在 github 上注册一个账号。
+创建 github 库在 github 上用你的 github 账号的用户名创建一个 repository，如我的 github 账户的用户名为 AnnieCyl，那么我就要创建一个名为 anniecyl.github.io 的 repository，注意：repository 的名字要以 .github.io 结尾，且必须与你的 github 账号的用户名一致，否则最后将无法打开你的博客页面。如下：
+默认生成的 repository 只有 master 分支，这个分支我们用来发布我们的博客。我们可以再建一个 develop 分支，这个分支是用来编辑博客的文章，编辑好的博客文章再通过 hexo 发布到 master 分支上。如下：
+将这个 repository 从 github 上 clone 到本地，可以在以下地方看到这个 repository 的地址：
+然后用 git bash 命令 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Annie</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/27/Android-Bluetooth/" title="Android Bluetooth">Android Bluetooth</a><time datetime="2021-01-27T08:27:37.000Z" title="发表于 2021 01 27 16:27:37">2021 01 27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/18/dotfile/" title="dotfile">dotfile</a><time datetime="2020-12-18T02:49:14.000Z" title="发表于 2020 12 18 10:49:14">2020 12 18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/15/UML/" title="UML">UML</a><time datetime="2020-12-15T02:37:15.000Z" title="发表于 2020 12 15 10:37:15">2020 12 15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/14/Design-Patterns/" title="Design Patterns">Design Patterns</a><time datetime="2020-12-14T02:56:08.000Z" title="发表于 2020 12 14 10:56:08">2020 12 14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/10/18/Kotlin-Study/" title="Kotlin Study">Kotlin Study</a><time datetime="2020-10-18T12:32:10.000Z" title="发表于 2020 10 18 20:32:10">2020 10 18</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/youtrack/" style="font-size: 1.1em; color: #999">youtrack</a> <a href="/tags/programming/" style="font-size: 1.23em; color: #999ea6">programming</a> <a href="/tags/mac/" style="font-size: 1.37em; color: #99a4b2">mac</a> <a href="/tags/kotlin/" style="font-size: 1.1em; color: #999">kotlin</a> <a href="/tags/hexo/" style="font-size: 1.37em; color: #99a4b2">hexo</a> <a href="/tags/android/" style="font-size: 1.5em; color: #99a9bf">android</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 1.1em; color: #999">出差</a> <a href="/tags/programmer/" style="font-size: 1.1em; color: #999">programmer</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/java/" style="font-size: 1.1em; color: #999">java</a> <a href="/tags/RxJava/" style="font-size: 1.1em; color: #999">RxJava</a> <a href="/tags/sublime/" style="font-size: 1.1em; color: #999">sublime</a> <a href="/tags/Key-Management/" style="font-size: 1.1em; color: #999">Key Management</a> <a href="/tags/navigation/" style="font-size: 1.1em; color: #999">navigation</a> <a href="/tags/bluetooth/" style="font-size: 1.1em; color: #999">bluetooth</a> <a href="/tags/H5/" style="font-size: 1.1em; color: #999">H5</a> <a href="/tags/powershell/" style="font-size: 1.1em; color: #999">powershell</a> <a href="/tags/git/" style="font-size: 1.5em; color: #99a9bf">git</a> <a href="/tags/PIN-Pad/" style="font-size: 1.1em; color: #999">PIN Pad</a> <a href="/tags/windows/" style="font-size: 1.1em; color: #999">windows</a> <a href="/tags/CA/" style="font-size: 1.1em; color: #999">CA</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/11/"><span class="card-archive-list-date">十一月 2018</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/10/"><span class="card-archive-list-date">十月 2018</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-23T00:49:52.885Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Annie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,32 +1,266 @@
-extends includes/layout
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Annie's Blog - good good study, day day up</title><meta name="author" content="Annie,289927039@qq.com"><meta name="copyright" content="Annie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Annie&#39;s Blog">
+<meta property="og:url" content="http://anniecyl.github.io/page/2/index.html">
+<meta property="og:site_name" content="Annie&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Annie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://anniecyl.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Annie\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024 01 23 08:49:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-block content
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-    section#wrapper.home
-        ul#post-list
-            each item in page.posts.sort('date', -1).toArray()
-                - var postTitle = item.title || 'No Title'
-                - var createDate = date(item.date, 'YYYY-MM-DD')
-                li
-                    aside.dates=createDate
-                    if item.link
-                        a(href=url_for(item.link))= postTitle
-                            h2!=item.excerpt
-                    else
-                        a(href=url_for(item.path))= postTitle
-                            h2!=item.excerpt
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Annie's Blog"><span class="site-name">Annie's Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Annie's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/10/23/AndroidX/" title="AndroidX">AndroidX</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-10-23T08:08:46.000Z" title="发表于 2018 10 23 16:08:46">2018 10 23</time></span></div><div class="content">题外话：比起支持，果然还是开发适合我，内心平静了好多。
+官方介绍：AndroidX
+迁移步骤：
 
-        nav#post-nav
-            span.prev(style='padding-left: 20px;')
-                if page.prev
-                    a(href=url_for(page.prev_link))
-                        span.arrow ←
-                        | Newer Posts
-            span.next
-                if page.next
-                    a(href=url_for(page.next_link))
-                        | Older Posts
-                        span.arrow →
+将 Android Studio 升级到 3.2 以上的版本，project 下的 gradle 里面 com.android.tools.build:gradle 的版本号要改成 3.2.1
+
+修改 gradle.properties
+android.useAndroidX=true
+android.enableJetifier=true
+
+打开 module 下面的 build.gralde 文件
+
+compileSdkVersion 更改为 28
+targetSdkVersion 更改为 28
 
 
+在AndroidStudio 中执行如下操作：Refactor &gt; Migrate to AndroidX
 
+
+迁移后续：
+
+由于 Migrate to AndroidX 执行之后，部分控件的包名&#x2F;路径名的自动转换是有问题的，所以还需要我们手动调整。如：ViewPager，RecyclerView 等，这些内容在迁移完成之后，Android Studio 帮我们自动转换的包 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/10/17/hexo-%E9%97%AE%E9%A2%98/" title="hexo 问题">hexo 问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-10-17T09:16:12.000Z" title="发表于 2018 10 17 17:16:12">2018 10 17</time></span></div><div class="content">每次隔一段时间不发布博客，总会冒出新问题。
+这次是执行 hexo d 的时候提示：
+
+于是上网搜，反正就是先测试 ssh 是否可以连接，ssh -T git@github.com，然后就可以了：
+
+github.io 拒绝了我们的连接请求
+通过站长之家 DNS 查询，查询自己博客可用的 ip。
+ 
+
+使用管理员权限打开记事本，然后在记事本中打开 C:\Windows\System32\drivers\etc\hosts 文件，将上面查询到的 ip 带上自己博客的域名加到 hosts 文件中，保存即可。 
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/10/17/CA-%E8%AF%81%E4%B9%A6/" title="CA 证书">CA 证书</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-10-17T08:52:34.000Z" title="发表于 2018 10 17 16:52:34">2018 10 17</time></span></div><div class="content">一些概念
+CA 是  Certificate Authority 的缩写，也叫“证书授权中心”。
+
+CA 证书就是由 CA 机构发布的数字证书。
+
+SSL（security sockets layer，安全套接层）是为网络通信提供安全及数据完整性的一种安全协议。SSL3.0 版本以后又被称为 TLS。SSL 采用了两种手段：身份认证和数据加密，来保证网络通信的安全和数据的完整性。身份认证就需要用到 CA 证书了。
+
+证书之间的信任关系：就是用一个证书来证明另一个证书是真实可信的。
+
+证书信任链：证书之间的信任关系是可以嵌套的。比如，C 信任 A1，A1 信任 A2，A2 信任 A3……这个叫做证书的信任链。只要你信任链上的头一个证书，那后续的证书，都是可以信任的。
+
+根证书：假设 C 证书信任 A 和 B，然后 A 信任 A1 和 A2，B 信任 B1 和 B2，则它们之间构成如下的一个树形关系（一个倒立的树）：
+
+处于最顶上的树根位置的那个证书，就是根证书。除了根证书，其它证书都要依靠上一级的证书，来证明自己。那谁来证明根证书的可靠呢？实际上，根证书自己证明自己是可靠的（或者换句话说 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/23/sublime/" title="sublime">sublime</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-23T10:16:52.000Z" title="发表于 2018 07 23 18:16:52">2018 07 23</time></span></div><div class="content">安装 Package Controlhttps://packagecontrol.io/installation
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/18/taiwan/" title="台湾个人游材料准备">台湾个人游材料准备</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-18T12:42:44.000Z" title="发表于 2018 07 18 20:42:44">2018 07 18</time></span></div><div class="content">虽然是因为出差要去台湾，但是办的是台湾个人游的手续。由于福州人滞留台湾的名声比较坏，所以福州人要去台湾旅游是非常不容易的，有些旅行社为了保证福州人不会滞留台湾，办证都要先交 2 万押金，等到从台湾回来了才会返还这 2 万押金。
+需要办理去台湾旅行需要 2 证 1 签注：
+
+台湾通行证：这是大陆签发的允许大陆居民去台湾的证
+入台证：这是台湾签发的允许大陆居民进入台湾的证
+签注：个人游是办 G 签
+
+关于通行证和签注台湾通行证和签注比较好办理，一般拿着户口本和身份证去出入境就可以办理。
+如果已经有通行证了，在微信上关注“福建省公安厅出入境管理局”公众号，选择：“业务办理” -&gt; “往来台湾旅行签注申请”，填写签注申请以后，可以选择快递服务，邮政就会派人上门收证（台湾通行证），大概 3 个工作日以后会把签注好的通行证再送回来，来回快递只需 20。
+关于入台证比较麻烦的是入台证，需要准备很多材料。我这次就提交了以下这些材料：
+
+本人身份证正反、面扫描件
+本人户口簿页，户口簿首页，户口簿户主页
+紧急联系人身份证正、反面扫描件
+紧急联系人户口簿页
+台湾通行证个人信息页，签注页
+2 寸白底证件 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/01/h5app/" title="H5 桌面应用开发">H5 桌面应用开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-01T10:28:17.000Z" title="发表于 2018 07 01 18:28:17">2018 07 01</time></span></div><div class="content">我打算自学开发一个 H5 桌面应用出来。目前只是对 js 有些了解，这里先记录一下需要学习的技术：
+
+HTML5
+Electron：包装 HTML 页面，为网页提供一个本地运行环境。https://electronjs.org/docs
+Node.js：这个之前用过，相对来说还是比较了解一点
+CSS
+UI
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/30/head-first-java/" title="《Head First Java》学习笔记">《Head First Java》学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-30T13:04:22.000Z" title="发表于 2018 06 30 21:04:22">2018 06 30</time></span></div><div class="content">对象
+创建对象时，它会被存放在称为堆的内存区域中，此区域并非普通的堆，它是可回收垃圾的堆。
+没有对象变量这样的东西存在，只有引用到对象的变量，它并不是对象的容器（因为对象都是保存在堆里），而是类似指向对象的指针，或者可以说是地址。
+Dog myDog = new Dog(); 这样一个语句，其实包含了三个步骤：
+Dog myDog 声明了一个引用变量，java 虚拟机会分配空间给引用变量。
+new Dog() 创建一个对象，java 虚拟机会分配堆空间给新建立的 Dog 对象。
+= 将新的 Dog 对象与引用变量连接起来了。
+
+
+对于任意一个 java 虚拟机来说，所有引用变量的大小都一样，不管它实际上所引用的对象大小。但是，不同的 java 虚拟机间可能会以不同的方式来表示引用，因此某个 java 虚拟机的引用大小可能会大于或者小于另一个 java 虚拟机的引用变量。
+一个引用变量如果被标记成 final 的，一旦被指派给某个对象了，就被固定下来了，不能再指派除了这个对象以外的对象给这个引用变量了。
+数组是一个对象，不管里面放的是基础数据类型，还是对象引用。
+实例变量（类的属性字段） ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/28/uninstall-parallels-desktop/" title="完全卸载 parallels desktop">完全卸载 parallels desktop</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-28T11:45:50.000Z" title="发表于 2018 06 28 19:45:50">2018 06 28</time></span></div><div class="content">sudo rm -rf &#x2F;Users&#x2F;这里改成你的系统用户名&#x2F;Library&#x2F;Preferences&#x2F;com.parallel*
+sudo rm -rf &#x2F;Users&#x2F;这里改成你的系统用户名&#x2F;Library&#x2F;Parallels
+sudo rm -rf &#x2F;private&#x2F;var&#x2F;db&#x2F;Parallels
+sudo rm -rf &#x2F;Library&#x2F;Logs&#x2F;parallels*
+sudo rm -rf &#x2F;Library&#x2F;Preferences&#x2F;Parallels
+sudo rm -rf  &#x2F;private&#x2F;var&#x2F;.Parallels_swap
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/24/rxjava2x/" title="《RxJava2.x 实战》学习笔记">《RxJava2.x 实战》学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-24T02:23:01.000Z" title="发表于 2018 06 24 10:23:01">2018 06 24</time></span></div><div class="content">本文中的学习测试代码：https://github.com/AnnieCyl/rxjavastudy
+RxRx &#x3D; Observables + LINQ + Schedulers
+RxJava 使用三步骤
+创建 Observable
+创建 Observer
+使用 subscribe() 进行订阅
+
+subscribe 重载方法
+subscribe(onNext)
+subscribe(onNext, onError)
+subscribe(onNext, onError, onComplete)
+subscribe(onNext, onError, onComplete, onSubscribe)
+
+5 种被观察者类型
+Observable：能够发射 0 或 n 个数据，并以成功或者错误事件终止。
+Flowable：能够发射 0 或 n 个数据，并以成功或者错误事件终止。支持背压，可以控制数据源发射的速度。
+Maybe：能够发射 0 或者 1 个数据，要么成功，要么失败。只有 onComplete、onSuccess 和 onError 事件，三者选其一。
+Single：只发射单 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/22/gitlab-mirror/" title="gitlab 镜像工程">gitlab 镜像工程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-22T12:58:46.000Z" title="发表于 2018 06 22 20:58:46">2018 06 22</time></span></div><div class="content">有时候需要在两个 gitlab 服务器之间做镜像文件，这样，在一个服务器上的更改可以同步到另一个服务器上。假设有两个服务器，A 服务器和 B 服务器：
+
+pull 镜像：在 B 上开发的工程，在 A 上做此工程的 pull 镜像，每次 B 的这个工程有更新，A 会自动 pull 过来。步骤：
+push 镜像：在 A 上开发的工程，做 push 镜像到 B 上，每次 A 的这个工程有更新，A 会自动 push 到 B 上。操作步骤如下：
+在 B 上创建一个用户，例如 autopush
+如果 B 上还没有对应工程，创建一个对应工程，将 autopush 用户添加到该工程中。然后复制该工程的 http 地址。
+在 A 上进入工程的 Repository 配置 push 镜像
+将 B 上的工程地址和 autopush 用户组合起来，例如，http://autopush:password@github.com/annie/demo.git
+如果 B 上这个工程是在某个 group 下，则这个 group 的成员都有对此工程的访问权限，此时需要在此工程的 Member 下把 group 中的每个成 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Annie</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/01/27/Android-Bluetooth/" title="Android Bluetooth">Android Bluetooth</a><time datetime="2021-01-27T08:27:37.000Z" title="发表于 2021 01 27 16:27:37">2021 01 27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/18/dotfile/" title="dotfile">dotfile</a><time datetime="2020-12-18T02:49:14.000Z" title="发表于 2020 12 18 10:49:14">2020 12 18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/15/UML/" title="UML">UML</a><time datetime="2020-12-15T02:37:15.000Z" title="发表于 2020 12 15 10:37:15">2020 12 15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/14/Design-Patterns/" title="Design Patterns">Design Patterns</a><time datetime="2020-12-14T02:56:08.000Z" title="发表于 2020 12 14 10:56:08">2020 12 14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/10/18/Kotlin-Study/" title="Kotlin Study">Kotlin Study</a><time datetime="2020-10-18T12:32:10.000Z" title="发表于 2020 10 18 20:32:10">2020 10 18</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/youtrack/" style="font-size: 1.1em; color: #999">youtrack</a> <a href="/tags/programming/" style="font-size: 1.23em; color: #999ea6">programming</a> <a href="/tags/mac/" style="font-size: 1.37em; color: #99a4b2">mac</a> <a href="/tags/kotlin/" style="font-size: 1.1em; color: #999">kotlin</a> <a href="/tags/hexo/" style="font-size: 1.37em; color: #99a4b2">hexo</a> <a href="/tags/android/" style="font-size: 1.5em; color: #99a9bf">android</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 1.1em; color: #999">出差</a> <a href="/tags/programmer/" style="font-size: 1.1em; color: #999">programmer</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/java/" style="font-size: 1.1em; color: #999">java</a> <a href="/tags/RxJava/" style="font-size: 1.1em; color: #999">RxJava</a> <a href="/tags/sublime/" style="font-size: 1.1em; color: #999">sublime</a> <a href="/tags/Key-Management/" style="font-size: 1.1em; color: #999">Key Management</a> <a href="/tags/navigation/" style="font-size: 1.1em; color: #999">navigation</a> <a href="/tags/bluetooth/" style="font-size: 1.1em; color: #999">bluetooth</a> <a href="/tags/H5/" style="font-size: 1.1em; color: #999">H5</a> <a href="/tags/powershell/" style="font-size: 1.1em; color: #999">powershell</a> <a href="/tags/git/" style="font-size: 1.5em; color: #99a9bf">git</a> <a href="/tags/PIN-Pad/" style="font-size: 1.1em; color: #999">PIN Pad</a> <a href="/tags/windows/" style="font-size: 1.1em; color: #999">windows</a> <a href="/tags/CA/" style="font-size: 1.1em; color: #999">CA</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/11/"><span class="card-archive-list-date">十一月 2018</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/10/"><span class="card-archive-list-date">十月 2018</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-23T00:49:52.885Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Annie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
