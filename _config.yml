@@ -89,7 +89,7 @@ feed: # 需安装插件：npm install hexo-generator-feed --save
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: annie
+theme: butterfly
 exclude_generator:
 
 # Markdown
